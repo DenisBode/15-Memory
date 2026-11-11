@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory- Game | Settings</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="settings-page">
+    <main id="settings-screen">
+      <h1 class="settings-title">Settings</h1>
+
+      <form id="settings-form" class="settings-form">
+        <div class="settings-options">
+          <fieldset class="settings-group">
+            <legend>Game themes</legend>
+            <label
+              ><input type="radio" name="theme" value="code-vibes" checked /> Code vibes theme</label
+            >
+            <label><input type="radio" name="theme" value="gaming" /> Gaming theme</label>
+            <label
+              ><input type="radio" name="theme" value="da-projects" /> DA Projects theme</label
+            >
+            <label><input type="radio" name="theme" value="foods" /> Foods theme</label>
+          </fieldset>
+
+          <fieldset class="settings-group">
+            <legend>Choose player</legend>
+            <label><input type="radio" name="player" value="blue" checked /> Blue</label>
+            <label><input type="radio" name="player" value="orange" /> Orange</label>
+          </fieldset>
+
+          <fieldset class="settings-group">
+            <legend>Board size</legend>
+            <label><input type="radio" name="board" value="16" checked /> 16 cards</label>
+            <label><input type="radio" name="board" value="24" /> 24 cards</label>
+            <label><input type="radio" name="board" value="36" /> 36 cards</label>
+          </fieldset>
+        </div>
+
+        <div class="settings-side">
+          <div class="settings-preview"></div>
+          <div class="settings-actions">
+            <a href="index.html" class="btn btn-back">Back</a>
+            <button type="submit" id="btn_start" class="btn">Start</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <script src="dist/settings.js"></script>
+  </body>
+</html>

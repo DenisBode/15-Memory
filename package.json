@@ -1,0 +1,27 @@
+{
+  "name": "15-memory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "build": "tsc && sass scss/main.scss css/main.css",
+    "watch:ts": "tsc --watch",
+    "watch:css": "sass --watch scss/main.scss css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenisBode/15-Memory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DenisBode/15-Memory/issues"
+  },
+  "homepage": "https://github.com/DenisBode/15-Memory#readme",
+  "devDependencies": {
+    "sass": "^1.108.2",
+    "typescript": "^7.0.2"
+  }
+}

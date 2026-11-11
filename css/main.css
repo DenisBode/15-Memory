@@ -1,0 +1,128 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-align: center;
+}
+
+#start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.start-title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+}
+
+.start-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  color: white;
+}
+
+.settings-page {
+  background-color: white;
+  color: black;
+}
+
+#settings-screen {
+  width: min(100%, 60rem);
+  padding: 2rem;
+  text-align: left;
+}
+
+.settings-title {
+  margin-bottom: 2rem;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.settings-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 3rem;
+  align-items: start;
+}
+
+.settings-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border: none;
+}
+.settings-group legend {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.settings-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.settings-group input {
+  accent-color: black;
+  cursor: pointer;
+}
+
+.settings-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.settings-preview {
+  aspect-ratio: 4/3;
+  border-radius: 0.8rem;
+  background-color: #2f3331;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  border: none;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: black;
+  background-color: #f0ea6e;
+  cursor: pointer;
+}
+.btn:hover {
+  color: black;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+}
+
+/*# sourceMappingURL=main.css.map */
