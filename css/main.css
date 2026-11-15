@@ -5,6 +5,10 @@
   --btn-exit-bg: #86e9d633;
   --btn-exit-text: #86e9d6;
   --btn-exit-border: #86e9d6;
+  --card-bg-code-vibes: #303131;
+  --card-bg-games: #294f60;
+  --card-bg-projects: #ffffff;
+  --card-bg-food: #ffffff;
 }
 
 .btn {
@@ -32,6 +36,26 @@
 }
 .btn--exit:hover {
   color: var(--btn-exit-text);
+}
+
+.card {
+  border-radius: 8px;
+}
+
+.card--code-vibes {
+  background-color: var(--card-bg-code-vibes);
+}
+
+.card--games {
+  background-color: var(--card-bg-games);
+}
+
+.card--projects {
+  background-color: var(--card-bg-projects);
+}
+
+.card--food {
+  background-color: var(--card-bg-food);
 }
 
 *,

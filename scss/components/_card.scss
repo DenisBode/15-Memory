@@ -1,0 +1,21 @@
+// Feld-Hintergründe. Die Farben kommen aus _theme.scss.
+// Verwendung: <div class="card card--code-vibes"></div> usw.
+.card {
+  border-radius: 8px;
+}
+
+.card--code-vibes {
+  background-color: var(--card-bg-code-vibes);
+}
+
+.card--games {
+  background-color: var(--card-bg-games);
+}
+
+.card--projects {
+  background-color: var(--card-bg-projects);
+}
+
+.card--food {
+  background-color: var(--card-bg-food);
+}
