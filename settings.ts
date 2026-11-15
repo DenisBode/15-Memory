@@ -15,14 +15,24 @@ function loadSettings(): void {
   }
 }
 
+interface GameSettings {
+  theme: string;
+  player: string;
+  board: number;
+}
+
+function getSettings(): GameSettings {
+  const data = new FormData(form);
+  return {
+    theme: String(data.get('theme')),
+    player: String(data.get('player')),
+    board: Number(data.get('board')),
+  };
+}
+
 function startGame(event: Event): void {
   event.preventDefault();
-  const data = new FormData(form);
-  const settings = {
-    theme: data.get('theme'),
-    player: data.get('player'),
-    board: data.get('board'),
-  };
+  const settings = getSettings();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
   window.location.href = GAME_PAGE;
 }

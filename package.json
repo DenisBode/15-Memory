@@ -4,7 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "build": "tsc && sass scss/main.scss css/main.css",
+    "build": "tsc && sass scss/main.scss css/main.css && sass scss/pages/game.scss css/pages/game.css",
     "watch:ts": "tsc --watch",
     "watch:css": "sass --watch scss/main.scss css/main.css"
   },
