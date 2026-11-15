@@ -1,3 +1,39 @@
+:root {
+  --btn-bg: #f0ea6e;
+  --btn-text: #000;
+  --btn-glow: rgba(0, 229, 255, 0.6);
+  --btn-exit-bg: #86e9d633;
+  --btn-exit-text: #86e9d6;
+  --btn-exit-border: #86e9d6;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  border: none;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
+  cursor: pointer;
+}
+.btn:hover {
+  color: var(--btn-text);
+  box-shadow: 0 0 20px var(--btn-glow);
+}
+.btn--exit {
+  padding: 6px 14px;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--btn-exit-text);
+  background-color: var(--btn-exit-bg);
+  border: 1px solid var(--btn-exit-border);
+  border-radius: 4px;
+}
+.btn--exit:hover {
+  color: var(--btn-exit-text);
+}
+
 *,
 *::before,
 *::after {
@@ -108,21 +144,6 @@ body {
   gap: 1rem;
   padding: 1rem;
   background-color: #f5f5f5;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.8rem 2.5rem;
-  border: none;
-  text-decoration: none;
-  font-size: 1.1rem;
-  color: black;
-  background-color: #f0ea6e;
-  cursor: pointer;
-}
-.btn:hover {
-  color: black;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
 }
 
 /*# sourceMappingURL=main.css.map */

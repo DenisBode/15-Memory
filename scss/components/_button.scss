@@ -1,0 +1,31 @@
+// Gemeinsame Button-Styles. Farben kommen aus _theme.scss (CSS-Variablen).
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  border: none;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--btn-text);
+    box-shadow: 0 0 20px var(--btn-glow);
+  }
+
+  // Variante: Exit-Button im Spiel
+  &--exit {
+    padding: 6px 14px;
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--btn-exit-text);
+    background-color: var(--btn-exit-bg);
+    border: 1px solid var(--btn-exit-border);
+    border-radius: 4px;
+
+    &:hover {
+      color: var(--btn-exit-text);
+    }
+  }
+}

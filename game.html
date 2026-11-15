@@ -9,7 +9,20 @@
   </head>
   <body>
     <main class="game-container">
-      <div id="game-board"></div>
+      <section class="game-panel">
+        <header class="game-header">
+          <div class="game-header__players">
+            <div>Player 1 <span id="score">10</span></div>
+            <div>Player 2 <span id="score2">0</span></div>
+          </div>
+
+          <div class="game-header__current">Current Player<span id="current-player">1</span></div>
+
+          <button class="btn btn--exit game-header__exit" type="button">EXIT</button>
+        </header>
+
+        <div id="game-board"></div>
+      </section>
     </main>
   </body>
 </html>
