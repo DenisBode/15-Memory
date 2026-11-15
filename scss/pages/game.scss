@@ -47,6 +47,14 @@
   &__exit {
     justify-self: end;
   }
+
+  &__player_one {
+    color: #2bb1ff;
+  }
+
+  &__player_two {
+    color: #f58e39;
+  }
 }
 
 #game-board {

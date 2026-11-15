@@ -44,6 +44,12 @@
 .game-header__exit {
   justify-self: end;
 }
+.game-header__player_one {
+  color: #2bb1ff;
+}
+.game-header__player_two {
+  color: #f58e39;
+}
 
 #game-board {
   flex: 1;
