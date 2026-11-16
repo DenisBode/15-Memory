@@ -1,19 +1,6 @@
-"use strict";
 const STORAGE_KEY = 'memorySettings';
 const GAME_PAGE = 'game.html';
-const form = document.getElementById('settings-form');
-function loadSettings() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw)
-        return;
-    const saved = JSON.parse(raw);
-    for (const [name, value] of Object.entries(saved)) {
-        const radio = form.querySelector(`input[name="${name}"][value="${value}"]`);
-        if (radio)
-            radio.checked = true;
-    }
-}
-function getSettings() {
+function collectSettings(form) {
     const data = new FormData(form);
     return {
         theme: String(data.get('theme')),
@@ -21,11 +8,13 @@ function getSettings() {
         board: Number(data.get('board')),
     };
 }
-function startGame(event) {
-    event.preventDefault();
-    const settings = getSettings();
+function saveSettings(settings) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
-    window.location.href = GAME_PAGE;
 }
-loadSettings();
-form.addEventListener('submit', startGame);
+const form = document.getElementById('settings-form');
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    saveSettings(collectSettings(form));
+    window.location.href = GAME_PAGE;
+});
+export {};
