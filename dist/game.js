@@ -1,4 +1,5 @@
 import { getGridTemplate } from './grid.js';
+import { getBackImagePath } from './cards.js';
 const STORAGE_KEY = 'memorySettings';
 function readSettings() {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -18,6 +19,7 @@ function setGridColumns(board, cardCount) {
 function createCard(theme) {
     const card = document.createElement('div');
     card.className = `card card--${theme}`;
+    card.style.backgroundImage = `url("${getBackImagePath(theme)}")`;
     return card;
 }
 function renderBoard(settings) {

@@ -3,6 +3,10 @@
 // Verwendung: <div class="card card--code-vibes"></div> usw.
 .card {
   border-radius: 8px;
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
 }
 
 .card--code-vibes {

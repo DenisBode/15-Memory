@@ -1,5 +1,6 @@
 import type { GameSettings } from './types';
 import { getGridTemplate } from './grid.js';
+import { getBackImagePath } from './cards.js';
 
 const STORAGE_KEY = 'memorySettings';
 
@@ -24,6 +25,7 @@ function setGridColumns(board: HTMLElement, cardCount: number): void {
 function createCard(theme: string): HTMLDivElement {
   const card = document.createElement('div');
   card.className = `card card--${theme}`;
+  card.style.backgroundImage = `url("${getBackImagePath(theme)}")`;
   return card;
 }
 
