@@ -3,6 +3,7 @@ import { getGridTemplate } from './grid.js';
 import { getBackImagePath } from './cards.js';
 
 const STORAGE_KEY = 'memorySettings';
+const SETTINGS_PAGE = 'settings.html';
 
 function readSettings(): GameSettings | null {
   const raw = localStorage.getItem(STORAGE_KEY);
@@ -39,5 +40,28 @@ function renderBoard(settings: GameSettings): void {
   }
 }
 
+function exitGame(): void {
+  window.location.href = SETTINGS_PAGE;
+}
+
+function getExitDialog(): HTMLDialogElement | null {
+  return document.getElementById('exit-dialog') as HTMLDialogElement | null;
+}
+
+function openExitDialog(): void {
+  getExitDialog()?.showModal();
+}
+
+function closeExitDialog(): void {
+  getExitDialog()?.close();
+}
+
+function setupExitDialog(): void {
+  document.querySelector('.game-header__exit')?.addEventListener('click', openExitDialog);
+  document.getElementById('exit-dialog-back')?.addEventListener('click', closeExitDialog);
+  document.getElementById('exit-dialog-exit')?.addEventListener('click', exitGame);
+}
+
 const settings = readSettings();
 if (settings) renderBoard(settings);
+setupExitDialog();

@@ -24,6 +24,15 @@
         <div id="game-board"></div>
       </section>
     </main>
+
+    <dialog id="exit-dialog" class="exit-dialog">
+      <p>Are you sure you want to quit the game?</p>
+      <div class="exit-dialog__actions">
+        <button class="btn" type="button" id="exit-dialog-back">Back to Game</button>
+        <button class="btn btn--exit" type="button" id="exit-dialog-exit">Exit game</button>
+      </div>
+    </dialog>
+
     <script type="module" src="dist/game.js"></script>
   </body>
 </html>

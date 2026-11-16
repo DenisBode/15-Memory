@@ -57,6 +57,51 @@
   }
 }
 
+@keyframes exit-dialog-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.exit-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  padding: 2rem;
+  border: 2px solid #1e88e5;
+  border-radius: 8px;
+  background-color: #1f2222;
+  color: #fff;
+  text-align: center;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  &[open] {
+    animation: exit-dialog-drop 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
 #game-board {
   flex: 1;
   width: min(100%, 640px);

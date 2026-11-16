@@ -1,6 +1,7 @@
 import { getGridTemplate } from './grid.js';
 import { getBackImagePath } from './cards.js';
 const STORAGE_KEY = 'memorySettings';
+const SETTINGS_PAGE = 'settings.html';
 function readSettings() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw === null)
@@ -32,6 +33,24 @@ function renderBoard(settings) {
         board.appendChild(createCard(settings.theme));
     }
 }
+function exitGame() {
+    window.location.href = SETTINGS_PAGE;
+}
+function getExitDialog() {
+    return document.getElementById('exit-dialog');
+}
+function openExitDialog() {
+    getExitDialog()?.showModal();
+}
+function closeExitDialog() {
+    getExitDialog()?.close();
+}
+function setupExitDialog() {
+    document.querySelector('.game-header__exit')?.addEventListener('click', openExitDialog);
+    document.getElementById('exit-dialog-back')?.addEventListener('click', closeExitDialog);
+    document.getElementById('exit-dialog-exit')?.addEventListener('click', exitGame);
+}
 const settings = readSettings();
 if (settings)
     renderBoard(settings);
+setupExitDialog();
