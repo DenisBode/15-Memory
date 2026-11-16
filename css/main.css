@@ -6,9 +6,9 @@
   --btn-exit-text: #86e9d6;
   --btn-exit-border: #86e9d6;
   --card-bg-code-vibes: #303131;
-  --card-bg-games: #294f60;
-  --card-bg-projects: #ffffff;
-  --card-bg-food: #ffffff;
+  --card-bg-gaming: #294f60;
+  --card-bg-da-projects: #ffffff;
+  --card-bg-foods: #ffffff;
 }
 
 .btn {
@@ -46,16 +46,16 @@
   background-color: var(--card-bg-code-vibes);
 }
 
-.card--games {
-  background-color: var(--card-bg-games);
+.card--gaming {
+  background-color: var(--card-bg-gaming);
 }
 
-.card--projects {
-  background-color: var(--card-bg-projects);
+.card--da-projects {
+  background-color: var(--card-bg-da-projects);
 }
 
-.card--food {
-  background-color: var(--card-bg-food);
+.card--foods {
+  background-color: var(--card-bg-foods);
 }
 
 *,
