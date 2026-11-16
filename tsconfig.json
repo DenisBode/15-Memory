@@ -15,5 +15,6 @@
 
     // Recommended Options
     "strict": true
-  }
+  },
+  "exclude": ["tests", "dist", "node_modules"]
 }

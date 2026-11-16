@@ -1,4 +1,5 @@
 import type { GameSettings } from './types';
+import { getGridTemplate } from './grid.js';
 
 const STORAGE_KEY = 'memorySettings';
 
@@ -8,5 +9,33 @@ function readSettings(): GameSettings | null {
   return JSON.parse(raw) as GameSettings;
 }
 
+function getBoard(): HTMLElement | null {
+  return document.getElementById('game-board');
+}
+
+function clearBoard(board: HTMLElement): void {
+  board.replaceChildren();
+}
+
+function setGridColumns(board: HTMLElement, cardCount: number): void {
+  board.style.gridTemplateColumns = getGridTemplate(cardCount);
+}
+
+function createCard(theme: string): HTMLDivElement {
+  const card = document.createElement('div');
+  card.className = `card card--${theme}`;
+  return card;
+}
+
+function renderBoard(settings: GameSettings): void {
+  const board = getBoard();
+  if (!board) return;
+  clearBoard(board);
+  setGridColumns(board, settings.board);
+  for (let i = 0; i < settings.board; i++) {
+    board.appendChild(createCard(settings.theme));
+  }
+}
+
 const settings = readSettings();
-console.log('Settings:', settings);
+if (settings) renderBoard(settings);
