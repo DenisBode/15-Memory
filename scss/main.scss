@@ -40,6 +40,15 @@ textarea {
   font-family: inherit;
 }
 
+.start-decor {
+  position: fixed;
+  left: -4%;
+  bottom: -6%;
+  width: min(40vw, 360px);
+  opacity: 1;
+  pointer-events: none;
+}
+
 #start-screen {
   display: flex;
   flex-direction: column;
