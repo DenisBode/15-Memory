@@ -5,6 +5,10 @@
   --btn-exit-bg: #86e9d633;
   --btn-exit-text: #86e9d6;
   --btn-exit-border: #86e9d6;
+  --player-icon-color: #ffffff;
+  --player-1-color: #2bb1ff;
+  --player-2-color: #f58e39;
+  --player-icon-bg: var(--player-1-color);
   --card-bg: #303131;
   --dialog-bg: #ffffff;
   --dialog-text: #303131;
