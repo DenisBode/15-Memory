@@ -1,6 +1,7 @@
 import type { GameSettings } from './types';
 import { getGridTemplate } from './grid.js';
 import { getBackImagePath } from './cards.js';
+import { pickStartPlayer } from './players.js';
 
 type Player = 1 | 2;
 
@@ -82,9 +83,14 @@ function setupExitDialog(): void {
   document.getElementById('exit-dialog-exit')?.addEventListener('click', exitGame);
 }
 
+function showStartingPlayer(): void {
+  setCurrentPlayerIconColor(pickStartPlayer());
+}
+
 const settings = readSettings();
 if (settings) {
   applyTheme(settings.theme);
   renderBoard(settings);
 }
 setupExitDialog();
+showStartingPlayer();

@@ -1,5 +1,6 @@
 import { getGridTemplate } from './grid.js';
 import { getBackImagePath } from './cards.js';
+import { pickStartPlayer } from './players.js';
 const STORAGE_KEY = 'memorySettings';
 const SETTINGS_PAGE = 'settings.html';
 function readSettings() {
@@ -65,9 +66,13 @@ function setupExitDialog() {
     document.getElementById('exit-dialog-back')?.addEventListener('click', closeExitDialog);
     document.getElementById('exit-dialog-exit')?.addEventListener('click', exitGame);
 }
+function showStartingPlayer() {
+    setCurrentPlayerIconColor(pickStartPlayer());
+}
 const settings = readSettings();
 if (settings) {
     applyTheme(settings.theme);
     renderBoard(settings);
 }
 setupExitDialog();
+showStartingPlayer();
