@@ -11,6 +11,10 @@ function readSettings(): GameSettings | null {
   return JSON.parse(raw) as GameSettings;
 }
 
+function applyTheme(theme: string): void {
+  document.documentElement.dataset.theme = theme;
+}
+
 function getBoard(): HTMLElement | null {
   return document.getElementById('game-board');
 }
@@ -25,7 +29,7 @@ function setGridColumns(board: HTMLElement, cardCount: number): void {
 
 function createCard(theme: string): HTMLDivElement {
   const card = document.createElement('div');
-  card.className = `card card--${theme}`;
+  card.className = 'card';
   card.style.backgroundImage = `url("${getBackImagePath(theme)}")`;
   return card;
 }
@@ -63,5 +67,8 @@ function setupExitDialog(): void {
 }
 
 const settings = readSettings();
-if (settings) renderBoard(settings);
+if (settings) {
+  applyTheme(settings.theme);
+  renderBoard(settings);
+}
 setupExitDialog();

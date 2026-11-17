@@ -5,10 +5,43 @@
   --btn-exit-bg: #86e9d633;
   --btn-exit-text: #86e9d6;
   --btn-exit-border: #86e9d6;
-  --card-bg-code-vibes: #303131;
-  --card-bg-gaming: #294f60;
-  --card-bg-da-projects: #ffffff;
-  --card-bg-foods: #ffffff;
+  --card-bg: #303131;
+  --dialog-bg: #ffffff;
+  --dialog-text: #303131;
+  --dialog-border: #4dd5bc;
+  --dialog-backdrop: rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme=code-vibes] {
+  --card-bg: #303131;
+  --dialog-bg: #ffffff;
+  --dialog-text: #303131;
+  --dialog-border: #4dd5bc;
+  --dialog-backdrop: rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme=gaming] {
+  --card-bg: #294f60;
+  --dialog-bg: #1f2222;
+  --dialog-text: #ffffff;
+  --dialog-border: #1e88e5;
+  --dialog-backdrop: rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme=da-projects] {
+  --card-bg: #ffffff;
+  --dialog-bg: #f5f5f5;
+  --dialog-text: #222222;
+  --dialog-border: #2bb1ff;
+  --dialog-backdrop: rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme=foods] {
+  --card-bg: #ffffff;
+  --dialog-bg: #fff4e6;
+  --dialog-text: #3a2a1a;
+  --dialog-border: #f58e39;
+  --dialog-backdrop: rgba(0, 0, 0, 0.4);
 }
 
 .btn {
@@ -42,24 +75,9 @@
   border-radius: 8px;
   width: 120px;
   height: 120px;
+  background-color: var(--card-bg);
   background-size: cover;
   background-position: center;
-}
-
-.card--code-vibes {
-  background-color: var(--card-bg-code-vibes);
-}
-
-.card--gaming {
-  background-color: var(--card-bg-gaming);
-}
-
-.card--da-projects {
-  background-color: var(--card-bg-da-projects);
-}
-
-.card--foods {
-  background-color: var(--card-bg-foods);
 }
 
 *,

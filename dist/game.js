@@ -8,6 +8,9 @@ function readSettings() {
         return null;
     return JSON.parse(raw);
 }
+function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+}
 function getBoard() {
     return document.getElementById('game-board');
 }
@@ -19,7 +22,7 @@ function setGridColumns(board, cardCount) {
 }
 function createCard(theme) {
     const card = document.createElement('div');
-    card.className = `card card--${theme}`;
+    card.className = 'card';
     card.style.backgroundImage = `url("${getBackImagePath(theme)}")`;
     return card;
 }
@@ -51,6 +54,8 @@ function setupExitDialog() {
     document.getElementById('exit-dialog-exit')?.addEventListener('click', exitGame);
 }
 const settings = readSettings();
-if (settings)
+if (settings) {
+    applyTheme(settings.theme);
     renderBoard(settings);
+}
 setupExitDialog();

@@ -1,5 +1,49 @@
-// Zentrale Farben. Für ein neues Farbschema nur die Werte hier ändern
-// (oder später eine [data-theme]-Regel ergänzen).
+@use 'sass:map';
+
+// Alle Themes an einer Stelle. Ein neues Theme = ein neuer Eintrag hier.
+// Die Schlüssel müssen den Theme-Werten aus settings.html entsprechen.
+// Werte für gaming, da-projects und foods sind Platzhalter.
+$themes: (
+  'code-vibes': (
+    'card-bg': #303131,
+    'dialog-bg': #ffffff,
+    'dialog-text': #303131,
+    'dialog-border': #4dd5bc,
+    'dialog-backdrop': rgba(0, 0, 0, 0.5),
+  ),
+  'gaming': (
+    'card-bg': #294f60,
+    'dialog-bg': #1f2222,
+    'dialog-text': #ffffff,
+    'dialog-border': #1e88e5,
+    'dialog-backdrop': rgba(0, 0, 0, 0.6),
+  ),
+  'da-projects': (
+    'card-bg': #ffffff,
+    'dialog-bg': #f5f5f5,
+    'dialog-text': #222222,
+    'dialog-border': #2bb1ff,
+    'dialog-backdrop': rgba(0, 0, 0, 0.4),
+  ),
+  'foods': (
+    'card-bg': #ffffff,
+    'dialog-bg': #fff4e6,
+    'dialog-text': #3a2a1a,
+    'dialog-border': #f58e39,
+    'dialog-backdrop': rgba(0, 0, 0, 0.4),
+  ),
+);
+
+// Schreibt die Variablen eines Themes. Wird unten für jedes Theme benutzt.
+@mixin theme-vars($t) {
+  --card-bg: #{map.get($t, 'card-bg')};
+  --dialog-bg: #{map.get($t, 'dialog-bg')};
+  --dialog-text: #{map.get($t, 'dialog-text')};
+  --dialog-border: #{map.get($t, 'dialog-border')};
+  --dialog-backdrop: #{map.get($t, 'dialog-backdrop')};
+}
+
+// Standard, wenn kein Theme gesetzt ist
 :root {
   // Standard-Button (Play, Start, Back)
   --btn-bg: #f0ea6e;
@@ -11,10 +55,12 @@
   --btn-exit-text: #86e9d6;
   --btn-exit-border: #86e9d6;
 
-  // Hintergrundfarben der Felder (Karten), Platzhalter-Werte
-  // Namen entsprechen den Theme-Werten aus den Settings
-  --card-bg-code-vibes: #303131;
-  --card-bg-gaming: #294f60;
-  --card-bg-da-projects: #ffffff;
-  --card-bg-foods: #ffffff;
+  @include theme-vars(map.get($themes, 'code-vibes'));
+}
+
+// Ein Block pro Theme, z. B. :root[data-theme="gaming"] { ... }
+@each $name, $values in $themes {
+  :root[data-theme='#{$name}'] {
+    @include theme-vars($values);
+  }
 }

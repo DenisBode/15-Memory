@@ -1,26 +1,10 @@
-// Feld-Hintergründe. Die Farben kommen aus _theme.scss.
-// Klassen-Namen entsprechen den Theme-Werten aus den Settings.
-// Verwendung: <div class="card card--code-vibes"></div> usw.
+// Feld-Hintergründe. Die Farbe kommt aus der Variable --card-bg,
+// die je nach Theme in _theme.scss gesetzt wird.
 .card {
   border-radius: 8px;
   width: 120px;
   height: 120px;
+  background-color: var(--card-bg);
   background-size: cover;
   background-position: center;
-}
-
-.card--code-vibes {
-  background-color: var(--card-bg-code-vibes);
-}
-
-.card--gaming {
-  background-color: var(--card-bg-gaming);
-}
-
-.card--da-projects {
-  background-color: var(--card-bg-da-projects);
-}
-
-.card--foods {
-  background-color: var(--card-bg-foods);
 }
