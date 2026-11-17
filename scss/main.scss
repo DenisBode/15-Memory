@@ -2,6 +2,14 @@
 @use 'components/button';
 @use 'components/card';
 
+@font-face {
+  font-family: 'Red Rose';
+  src: url('../fonts/Red_Rose/RedRose-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 $bg: black;
 $text: white;
 $accent: #00e5ff;
@@ -21,8 +29,15 @@ body {
   align-items: center;
   background-color: $bg;
   color: $text;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Red Rose', 'Segoe UI', Arial, sans-serif;
   text-align: center;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 #start-screen {
@@ -36,12 +51,11 @@ body {
 .start-title {
   font-size: clamp(2.5rem, 8vw, 5rem);
   letter-spacing: 0.15em;
-  text-transform: uppercase;
   color: $text;
-  text-shadow: 0 0 20px rgba($accent, 0.6);
 }
 
-.start-subtitle {
+.start-eyebrow {
+  align-self: flex-start;
   font-size: 1.2rem;
   opacity: 0.7;
   color: $text;
@@ -122,4 +136,3 @@ body {
   padding: 1rem;
   background-color: #f5f5f5;
 }
-

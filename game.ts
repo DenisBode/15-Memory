@@ -2,6 +2,8 @@ import type { GameSettings } from './types';
 import { getGridTemplate } from './grid.js';
 import { getBackImagePath } from './cards.js';
 
+type Player = 1 | 2;
+
 const STORAGE_KEY = 'memorySettings';
 const SETTINGS_PAGE = 'settings.html';
 
@@ -42,6 +44,20 @@ function renderBoard(settings: GameSettings): void {
   for (let i = 0; i < settings.board; i++) {
     board.appendChild(createCard(settings.theme));
   }
+}
+
+function getCurrentPlayerIcon(): HTMLElement | null {
+  return document.getElementById('current-player-icon');
+}
+
+function getPlayerColor(player: Player): string {
+  return `var(--player-${player}-color)`;
+}
+
+function setCurrentPlayerIconColor(player: Player): void {
+  const icon = getCurrentPlayerIcon();
+  if (!icon) return;
+  icon.style.setProperty('--player-icon-bg', getPlayerColor(player));
 }
 
 function exitGame(): void {

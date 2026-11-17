@@ -36,6 +36,18 @@ function renderBoard(settings) {
         board.appendChild(createCard(settings.theme));
     }
 }
+function getCurrentPlayerIcon() {
+    return document.getElementById('current-player-icon');
+}
+function getPlayerColor(player) {
+    return `var(--player-${player}-color)`;
+}
+function setCurrentPlayerIconColor(player) {
+    const icon = getCurrentPlayerIcon();
+    if (!icon)
+        return;
+    icon.style.setProperty('--player-icon-bg', getPlayerColor(player));
+}
 function exitGame() {
     window.location.href = SETTINGS_PAGE;
 }
