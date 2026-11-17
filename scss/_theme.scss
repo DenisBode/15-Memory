@@ -1,8 +1,5 @@
 @use 'sass:map';
 
-// Alle Themes an einer Stelle. Ein neues Theme = ein neuer Eintrag hier.
-// Die Schlüssel müssen den Theme-Werten aus settings.html entsprechen.
-// Werte für gaming, da-projects und foods sind Platzhalter.
 $themes: (
   'code-vibes': (
     'card-bg': #303131,
@@ -34,7 +31,6 @@ $themes: (
   ),
 );
 
-// Schreibt die Variablen eines Themes. Wird unten für jedes Theme benutzt.
 @mixin theme-vars($t) {
   --card-bg: #{map.get($t, 'card-bg')};
   --dialog-bg: #{map.get($t, 'dialog-bg')};
@@ -43,14 +39,11 @@ $themes: (
   --dialog-backdrop: #{map.get($t, 'dialog-backdrop')};
 }
 
-// Standard, wenn kein Theme gesetzt ist
 :root {
-  // Standard-Button (Play, Start, Back)
   --btn-bg: #f0ea6e;
   --btn-text: #000;
   --btn-glow: rgba(0, 229, 255, 0.6);
 
-  // Exit-Button im Spiel
   --btn-exit-bg: #86e9d633;
   --btn-exit-text: #86e9d6;
   --btn-exit-border: #86e9d6;
@@ -58,7 +51,6 @@ $themes: (
   @include theme-vars(map.get($themes, 'code-vibes'));
 }
 
-// Ein Block pro Theme, z. B. :root[data-theme="gaming"] { ... }
 @each $name, $values in $themes {
   :root[data-theme='#{$name}'] {
     @include theme-vars($values);

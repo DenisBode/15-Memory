@@ -179,9 +179,11 @@ body {
 }
 
 .settings-preview {
-  aspect-ratio: 4/3;
+  aspect-ratio: 920/824;
   border-radius: 0.8rem;
   background-color: #2f3331;
+  background-size: cover;
+  background-position: center;
 }
 
 .settings-actions {
