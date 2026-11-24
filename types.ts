@@ -3,3 +3,5 @@ export interface GameSettings {
   player: string;
   board: number;
 }
+
+export type Player = 1 | 2;
