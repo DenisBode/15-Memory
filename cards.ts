@@ -17,3 +17,8 @@ export function getPreviewImagePath(theme: string): string {
   }
   return `assets/previews/${file}`;
 }
+
+export function getFaceImagePath(theme: string, pairId: number): string {
+  const number = String(pairId).padStart(2, '0');
+  return `assets/cards/faces/${theme}-${number}.png`;
+}
