@@ -7,7 +7,7 @@ Memory-Spiel für zwei Spieler, entwickelt im TypeScript-Modul der Developer Aka
 1. **Startseite:** „Ready to play?“ mit animiertem Controller-Icon. Der Play-Button führt zu den Einstellungen.
 2. **Einstellungen:** Auswahl von Theme, Spielerfarbe und Spielfeldgröße. Eine Vorschau zeigt das gewählte Theme, die Leiste unten fasst die Auswahl zusammen.
 3. **Spiel:** Zwei Spieler decken abwechselnd je zwei Karten auf.
-4. **Game Over:** Nach dem letzten Paar erscheint bildschirmfüllend „Game over“ mit dem Endstand. Kurz danach folgt der Gewinner je nach Theme mit Spielfigur in seiner Farbe, Pokal oder Konfetti. Bei Unentschieden erscheint „DRAW“ mit einer Waage. Von dort startet eine neue Runde oder es geht zurück zur Startseite.
+4. **Game Over:** Nach dem letzten Paar erscheint bildschirmfüllend „Game over“ mit dem Endstand. Kurz danach folgt der Gewinner mit Konfetti und, je nach Theme, einer Spielfigur in seiner Farbe oder einem Pokal. Bei Unentschieden erscheint „DRAW“ mit einer Waage. „New game“ startet eine neue Runde mit denselben Einstellungen, „Home“ bzw. „Back to start“ führt zur Startseite.
 
 ## Funktionen
 
@@ -17,16 +17,18 @@ Memory-Spiel für zwei Spieler, entwickelt im TypeScript-Modul der Developer Aka
 - **Kopfzeile:** Punktestand beider Spieler, Anzeige des Spielers am Zug und ein „Exit game“-Button mit Sicherheitsabfrage.
 - **Spielregeln:**
   - Der Startspieler wird zufällig ausgelost.
-  - Die Karten drehen sich mit einer 3D-Animation um.
+  - Die Karten drehen sich mit einer 3D-Animation (400 ms) um.
   - Bei einem Paar bekommt der Spieler einen Punkt und ist weiter am Zug.
-  - Bei zwei verschiedenen Karten drehen sie sich nach gut einer Sekunde zurück, und der andere Spieler ist dran.
+  - Bei zwei verschiedenen Karten drehen sie sich nach 1,2 Sekunden zurück, und der andere Spieler ist dran.
 
 ### Extras
 
 - Gefundene Paare bekommen einen Rahmen in der Farbe des Spielers, der sie gefunden hat.
-- Unit-Tests für die Spiellogik mit dem Testrunner von Node.
+- 36 Unit-Tests für die Spiellogik mit dem Testrunner von Node.
+- Alle Schriften sind lokal eingebunden, das Spiel läuft ohne Internetverbindung.
 - Widescreen ab 1440px: Die Content-Fläche bleibt so breit wie im Desktop-Layout und wird zentriert, der Hintergrund geht über die ganze Breite. Das Konfetti in der Gewinner-Ansicht läuft dann über die volle Bildschirmbreite.
-- Die Animation des Controller-Icons ist aus, wenn im Betriebssystem „Bewegung reduzieren“ aktiviert ist.
+- Die Animationen von Controller-Icon und Konfetti sind aus, wenn im Betriebssystem „Bewegung reduzieren“ aktiviert ist.
+- Die Felder in der Settings-Leiste sind so breit wie ihre längste Option, damit beim Umschalten nichts springt.
 
 ## Starten
 
@@ -66,7 +68,7 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So l�
 │   ├── grid.ts           Spaltenzahl je Spielfeldgröße
 │   └── players.ts        Startspieler auslosen, eigene Spielerfarbe
 ├── scss/                 Styles
-│   ├── abstract/         Variablen und Mixins
+│   ├── abstract/         Variablen und Mixins (z. B. flex-center, mask-image, widescreen)
 │   ├── components/       Buttons, Karten, Popups, Radio-Buttons
 │   ├── layout/           Seitenlayout
 │   ├── pages/            Start-, Settings- und Spielseite
@@ -78,7 +80,7 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So l�
 │   ├── cards/back/       Rückseiten: <theme>.png
 │   ├── previews/         Vorschaubilder: <theme>.png
 │   ├── result/           Ergebnis: Spielfigur, Pokal, Waage, Konfetti
-│   └── icons/            Icons der Oberfläche
+│   └── icons/            Icons der Oberfläche: Controller, Spielfigur, Play, Exit
 ├── fonts/                Schriftdateien mit Lizenz (OFL.txt)
 ├── dist/                 Übersetztes JavaScript aus ts/
 └── css/                  Übersetztes CSS aus scss/
@@ -89,6 +91,9 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So l�
 - **TypeScript** im Strict-Modus, als ES-Module. Jede Funktion ist mit JSDoc dokumentiert.
 - **SCSS** mit BEM-Klassen, Verschachtelung und Mixins (`@use '../abstract/mixin' as mx`).
 - **Themes** über CSS-Variablen: `_theme.scss` erzeugt aus einer Sass-Map pro Theme einen Block `:root[data-theme="…"]`. Das Skript setzt `data-theme` am `<html>`-Element.
+- **Theme-Varianten ohne TypeScript:** Welche Elemente ein Theme zeigt, steuern ebenfalls CSS-Variablen, z. B. `--trophy-display` oder `--confetti-display`. Das Skript setzt nur Klassen wie `result--draw`.
+- **Einfärbbare Icons:** Spielfigur, Waage und Exit-Icon sind CSS-Masken (`mask-image`). Ihre Farbe kommt aus `background-color`, z. B. der Spielerfarbe oder `currentColor`.
+- **Responsive:** Mixin `mobile` für kleine Bildschirme, Mixin `widescreen` ab 1440px.
 - **Einstellungen** werden im `localStorage` gespeichert und auf der Spielseite gelesen.
 
 ## Stand
