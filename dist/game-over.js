@@ -1,5 +1,7 @@
 import { getResultText, getWinner } from './game-state.js';
 import { playerColor } from './header.js';
+/** Theme that labels the home button with "Back to start" instead of "Home". */
+const LONG_HOME_LABEL_THEME = 'code-vibes';
 /** Time in ms the "Game over" view is shown before the winner appears. */
 const WINNER_DELAY_MS = 2500;
 /**
@@ -36,6 +38,15 @@ function colorWinner(winner) {
         result.style.setProperty('--winner-color', playerColor(winner));
 }
 /**
+ * Builds the label of the home button for the active theme.
+ * @param theme - Active theme, undefined means the default theme Code Vibes.
+ * @returns "Back to start" for Code Vibes, otherwise "Home".
+ */
+function getHomeLabel(theme) {
+    const isLong = theme === undefined || theme === LONG_HOME_LABEL_THEME;
+    return isLong ? 'Back to start' : 'Home';
+}
+/**
  * Switches from the "Game over" view to the winner view.
  * @param scores - Final points per player.
  */
@@ -44,6 +55,7 @@ function showWinner(scores) {
     setText('result-label', text.subtitle);
     setText('result-winner-name', text.title);
     colorWinner(getWinner(scores));
+    setText('result-home', getHomeLabel(document.documentElement.dataset.theme));
     setVisible('result-game-over', false);
     setVisible('result-winner', true);
 }
