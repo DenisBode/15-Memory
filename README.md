@@ -48,7 +48,7 @@ npm run build
 
 Danach `index.html` über den lokalen Server öffnen, z. B. in VS Code per Rechtsklick → „Open with Live Server“. Ein Doppelklick auf die Datei reicht nicht, weil die Skripte als ES-Module geladen werden.
 
-Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository, damit das Spiel auch ohne eigenen Build läuft. Nach Änderungen an `ts/` oder `scss/` müssen sie mit `npm run build` neu erzeugt werden.
+Die Ordner `css/` und `dist/` werden von `npm run build` erzeugt und sind nicht im Repository. Ohne diesen Schritt fehlen dem Spiel JavaScript und CSS. Nach Änderungen an `ts/` oder `scss/` den Build erneut ausführen.
 
 ## Scripts
 
@@ -113,8 +113,8 @@ Alle Pfade sind relativ, und alle Dateinamen sind so geschrieben, wie sie im Cod
 │   ├── result/           Ergebnis: Spielfigur, Pokal, Waage, Konfetti
 │   └── icons/            Icons der Oberfläche: Controller, Spielfigur, Play, Exit, Settings-Überschriften
 ├── fonts/                Schriftdateien mit Lizenz (OFL.txt)
-├── dist/                 Übersetztes JavaScript aus ts/
-└── css/                  Übersetztes CSS aus scss/
+├── dist/                 Übersetztes JavaScript aus ts/ (generiert, nicht im Repo)
+└── css/                  Übersetztes CSS aus scss/ (generiert, nicht im Repo)
 ```
 
 ## Technik
