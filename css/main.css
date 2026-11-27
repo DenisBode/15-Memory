@@ -505,7 +505,7 @@
   transition: transform 100ms ease-out;
 }
 .btn-primary:hover img, .btn-primary:hover svg {
-  transform: scale(1.1);
+  transform: rotate(-20deg) scale(1.1);
 }
 @media (max-width: 480px) {
   .btn-primary {

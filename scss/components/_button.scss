@@ -16,7 +16,7 @@
 
   &:hover img,
   &:hover svg {
-    transform: scale(1.1);
+    transform: rotate(-20deg) scale(1.1);
   }
 
   @include mx.mobile(480px) {
