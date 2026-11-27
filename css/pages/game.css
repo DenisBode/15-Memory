@@ -230,6 +230,14 @@
   gap: 0;
   height: 344px;
 }
+.result__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
 .result__icon-box {
   padding: var(--icon-box-padding);
   background-color: var(--icon-box-bg);

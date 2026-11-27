@@ -202,6 +202,11 @@
     height: 344px;
   }
 
+  &__buttons {
+    @include mx.flex-center(row, 24px);
+    flex-wrap: wrap;
+  }
+
   &__icon-box {
     padding: var(--icon-box-padding);
     background-color: var(--icon-box-bg);
