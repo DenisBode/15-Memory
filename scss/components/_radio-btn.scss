@@ -29,6 +29,21 @@
 
   input:checked ~ &__label {
     font-weight: 700;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 3px;
+      margin-left: 16px;
+      vertical-align: middle;
+      background-color: v.$secondary-yellow;
+    }
+  }
+
+  &:has(input:checked)::after {
+    @include mx.diamond(10px);
+    margin-left: -12px;
   }
 
   input:focus-visible ~ &__icon {

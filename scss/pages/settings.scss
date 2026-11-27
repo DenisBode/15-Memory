@@ -8,12 +8,31 @@
 .settings {
   align-self: flex-start;
   padding-top: clamp(32px, 11.4vh, 117px);
+  padding-inline: clamp(24px, 11.7vw, 168px);
 
   &__title {
     @include mx.text-style(v.$font-headline, clamp(36px, 5vw, 54px), 700);
+    position: relative;
     display: inline-block;
+    margin-left: 22px;
     padding-bottom: 8px;
-    border-bottom: 4px solid v.$secondary-yellow;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -22px;
+      right: -12px;
+      bottom: 0;
+      height: 4px;
+      background-color: v.$secondary-yellow;
+    }
+
+    &::before {
+      @include mx.diamond;
+      position: absolute;
+      left: -26px;
+      bottom: -4px;
+    }
   }
 
   &__form {
@@ -37,7 +56,11 @@
   }
 
   &__group + &__group {
-    margin-top: 40px;
+    margin-top: 48px;
+  }
+
+  &__group .radio-btn {
+    margin-left: 44px;
   }
 
   &__heading {
@@ -47,6 +70,9 @@
   }
 
   &__icon {
+    width: 28px;
+    height: 28px;
+
     &--palette {
       color: v.$icon-palette;
     }
