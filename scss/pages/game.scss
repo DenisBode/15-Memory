@@ -69,23 +69,7 @@
   }
 
   &__player-icon {
-    position: relative;
-    display: inline-block;
-    width: 25px;
-    height: 32px;
-    background-color: var(--player-icon-bg);
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      margin: auto;
-      width: 15px;
-      height: 20px;
-      background-color: var(--player-icon-color, #ffffff);
-      -webkit-mask: url('../../assets/icons/chess-pawn.png') center / contain no-repeat;
-      mask: url('../../assets/icons/chess-pawn.png') center / contain no-repeat;
-    }
+    @include mx.pawn-icon(25px, 32px);
   }
 
   &__exit {
