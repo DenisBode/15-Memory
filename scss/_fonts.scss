@@ -1,0 +1,11 @@
+@use 'abstract/mixin' as mx;
+
+@include mx.font-face('Red Rose', 'Red_Rose/RedRose-VariableFont_wght.ttf', 300 700);
+@include mx.font-face('Almarai', 'Almarai/Almarai-Light.ttf', 300);
+@include mx.font-face('Almarai', 'Almarai/Almarai-Regular.ttf', 400);
+@include mx.font-face('Almarai', 'Almarai/Almarai-Bold.ttf', 700);
+@include mx.font-face('Almarai', 'Almarai/Almarai-ExtraBold.ttf', 800);
+@include mx.font-face('Orbitron', 'Orbitron/Orbitron-VariableFont_wght.ttf', 400 900);
+@include mx.font-face('Figtree', 'Figtree/Figtree-VariableFont_wght.ttf', 300 900);
+@include mx.font-face('Delius Unicase', 'Delius_Unicase/DeliusUnicase-Regular.ttf', 400);
+@include mx.font-face('Delius Unicase', 'Delius_Unicase/DeliusUnicase-Bold.ttf', 700);

@@ -87,6 +87,5 @@ Danach `index.html` über einen lokalen Server öffnen, z. B. mit der VS-Code-Er
 
 Noch offen:
 
-- Schriften Almarai, Orbitron, Figtree, Delius Unicase und Klee One als lokale Dateien
 - Auswahl der Spielerfarbe in den Einstellungen im Spiel auswerten
 - Game Over als eigene Ergebnis-Ansicht nach Figma

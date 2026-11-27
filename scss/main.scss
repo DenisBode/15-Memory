@@ -1,18 +1,11 @@
 @use 'abstract/variables' as v;
+@use 'fonts';
 @use 'theme';
 @use 'components/button';
 @use 'components/card';
 @use 'components/popup';
 @use 'components/radio-btn';
 @use 'layout/page';
-
-@font-face {
-  font-family: 'Red Rose';
-  src: url('../fonts/Red_Rose/RedRose-VariableFont_wght.ttf') format('truetype');
-  font-weight: 300 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 *,
 *::before,

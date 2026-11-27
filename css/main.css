@@ -1,3 +1,76 @@
+@keyframes popup-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@font-face {
+  font-family: "Red Rose";
+  src: url("../fonts/Red_Rose/RedRose-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Almarai";
+  src: url("../fonts/Almarai/Almarai-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Almarai";
+  src: url("../fonts/Almarai/Almarai-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Almarai";
+  src: url("../fonts/Almarai/Almarai-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Almarai";
+  src: url("../fonts/Almarai/Almarai-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/Orbitron/Orbitron-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/Figtree/Figtree-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Delius Unicase";
+  src: url("../fonts/Delius_Unicase/DeliusUnicase-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Delius Unicase";
+  src: url("../fonts/Delius_Unicase/DeliusUnicase-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --btn-bg: #f0ea6e;
   --btn-text: #303131;
@@ -334,16 +407,6 @@
   --winner-transform: none;
 }
 
-@keyframes popup-drop {
-  from {
-    opacity: 0;
-    transform: translateY(-100vh);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .btn-primary {
   display: flex;
   flex-direction: row;
@@ -603,13 +666,6 @@ input:focus-visible ~ .radio-btn__icon {
   }
 }
 
-@font-face {
-  font-family: "Red Rose";
-  src: url("../fonts/Red_Rose/RedRose-VariableFont_wght.ttf") format("truetype");
-  font-weight: 300 700;
-  font-style: normal;
-  font-display: swap;
-}
 *,
 *::before,
 *::after {

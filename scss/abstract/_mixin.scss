@@ -66,3 +66,13 @@
     animation: popup-drop 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) both;
   }
 }
+
+@mixin font-face($family, $file, $weight: 400) {
+  @font-face {
+    font-family: $family;
+    src: url('../fonts/#{$file}') format('truetype');
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+  }
+}
