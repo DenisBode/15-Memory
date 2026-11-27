@@ -1,0 +1,109 @@
+@keyframes popup-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.settings-page {
+  background-color: #ffffff;
+}
+
+.settings {
+  align-self: flex-start;
+}
+.settings__title {
+  font-family: "Red Rose", sans-serif;
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 700;
+  line-height: 100%;
+  color: #303131;
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 4px solid #f0ea6e;
+}
+.settings__form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.settings__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 40px;
+}
+.settings__group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  align-items: flex-start;
+  border: none;
+}
+.settings__group + .settings__group {
+  margin-top: 40px;
+}
+.settings__heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: "Almarai", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #303131;
+  margin-bottom: 8px;
+}
+.settings__icon--palette {
+  color: #da1eba;
+}
+.settings__icon--player {
+  color: #1ae5be;
+}
+.settings__icon--board {
+  color: #0635c9;
+}
+.settings__preview {
+  width: 460px;
+  max-width: 100%;
+  height: 412px;
+  padding: 17px 7px;
+  border-radius: 16px;
+  background: var(--preview-bg);
+}
+.settings__preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.settings-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-self: flex-end;
+  min-height: 81px;
+  padding: 14px 20px;
+  background-color: #f6f6f6;
+  font-family: "Almarai", sans-serif;
+  font-size: 20px;
+}
+.settings-bar__divider {
+  width: 8px;
+  height: 53px;
+  background-color: #f0ea6e;
+  transform: skewX(-19deg);
+}
+
+/*# sourceMappingURL=settings.css.map */

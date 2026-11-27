@@ -374,6 +374,34 @@
   }
 }
 
+.btn-small {
+  border: unset;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  transition: all 100ms ease-out;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: "Red Rose", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #303131;
+  padding: 14px 20px;
+  background-color: #f0ea6e;
+}
+.btn-small:hover {
+  font-size: 22px;
+}
+.btn-small:disabled {
+  background-color: #dbdbd6;
+  color: #a3a1a1;
+  cursor: default;
+}
+
 .btn {
   display: inline-block;
   padding: 0.8rem 2.5rem;
@@ -516,6 +544,48 @@
   color: var(--btn-secondary-hover-color);
 }
 
+.radio-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Almarai", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 100%;
+  color: #303131;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+.radio-btn input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.radio-btn__icon {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #303131;
+  border-radius: 50%;
+  transition: all 100ms ease-out;
+}
+input:checked ~ .radio-btn__icon {
+  box-shadow: inset 0 0 0 3px #ffffff;
+  background-color: #303131;
+}
+input:checked ~ .radio-btn__label {
+  font-weight: 700;
+}
+input:focus-visible ~ .radio-btn__icon {
+  outline: 2px solid #f0ea6e;
+  outline-offset: 2px;
+}
+.radio-btn:hover .radio-btn__icon {
+  transform: scale(1.1);
+}
+
 .page {
   width: 100%;
   max-width: 1440px;
@@ -563,79 +633,6 @@ input,
 select,
 textarea {
   font-family: inherit;
-}
-
-.settings-page {
-  background-color: #ffffff;
-  color: #303131;
-}
-
-#settings-screen {
-  width: min(100%, 60rem);
-  padding: 2rem;
-  text-align: left;
-}
-
-.settings-title {
-  margin-bottom: 2rem;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-}
-
-.settings-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem 3rem;
-  align-items: start;
-}
-
-.settings-options {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.settings-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  border: none;
-}
-.settings-group legend {
-  margin-bottom: 0.8rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-.settings-group label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-}
-.settings-group input {
-  accent-color: #303131;
-  cursor: pointer;
-}
-
-.settings-side {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.settings-preview {
-  aspect-ratio: 920/824;
-  border-radius: 0.8rem;
-  background-color: #2f3331;
-  background-size: cover;
-  background-position: center;
-}
-
-.settings-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: #f5f5f5;
 }
 
 /*# sourceMappingURL=main.css.map */

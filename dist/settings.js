@@ -3,6 +3,8 @@ import { getPreviewImagePath } from './cards.js';
 const STORAGE_KEY = 'memorySettings';
 /** Page opened when the game starts. */
 const GAME_PAGE = 'game.html';
+/** Names of the radio groups shown in the settings bar. */
+const SUMMARY_GROUPS = ['theme', 'player', 'board'];
 /**
  * Reads the selected options from the settings form.
  * @param form - Settings form.
@@ -24,27 +26,50 @@ function saveSettings(settings) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
 }
 /**
- * Shows the preview image of the selected theme.
+ * Shows the preview image of the selected theme on its theme background.
  * @param settings - Chosen settings.
  */
 function renderPreview(settings) {
-    const preview = document.querySelector('.settings-preview');
-    if (!preview)
-        return;
-    preview.style.backgroundImage = `url("${getPreviewImagePath(settings.theme)}")`;
+    const image = document.querySelector('.settings__preview-image');
+    document.documentElement.dataset.theme = settings.theme;
+    if (image)
+        image.src = getPreviewImagePath(settings.theme);
+}
+/**
+ * Reads the visible label of the checked option in a radio group.
+ * @param form - Settings form.
+ * @param name - Name of the radio group.
+ * @returns Label text, or an empty string if nothing is checked.
+ */
+function getSelectedLabel(form, name) {
+    const input = form.querySelector(`input[name="${name}"]:checked`);
+    const label = input?.closest('.radio-btn')?.querySelector('.radio-btn__label');
+    return label?.textContent ?? '';
+}
+/**
+ * Shows the chosen options in the settings bar.
+ * @param form - Settings form.
+ */
+function renderSummary(form) {
+    for (const name of SUMMARY_GROUPS) {
+        const element = document.getElementById(`summary-${name}`);
+        if (element)
+            element.textContent = getSelectedLabel(form, name);
+    }
 }
 /** Settings form of the page. */
 const form = document.getElementById('settings-form');
 /**
- * Updates the preview after a change in the form.
+ * Updates preview and settings bar after a change in the form.
  */
-function updatePreview() {
+function updateSettingsView() {
     renderPreview(collectSettings(form));
+    renderSummary(form);
 }
-form.addEventListener('change', updatePreview);
+form.addEventListener('change', updateSettingsView);
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     saveSettings(collectSettings(form));
     window.location.href = GAME_PAGE;
 });
-updatePreview();
+updateSettingsView();
