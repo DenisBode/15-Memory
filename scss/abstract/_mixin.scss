@@ -1,3 +1,5 @@
+@use 'variables' as v;
+
 @keyframes popup-drop {
   from {
     opacity: 0;
@@ -10,30 +12,57 @@
   }
 }
 
-@mixin flex-center {
+@mixin flex-center($direction: row, $gap: 0) {
   display: flex;
-  justify-content: center;
+  flex-direction: $direction;
   align-items: center;
+  justify-content: center;
+  gap: $gap;
 }
 
-@mixin popup($width: 280px) {
+@mixin button-reset {
+  border: unset;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  transition: all v.$transition;
+}
+
+@mixin text-style($family, $size, $weight: 400, $color: v.$primary-dark) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: 100%;
+  color: $color;
+}
+
+@mixin mobile($max: 768px) {
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin popup($max-width: 560px) {
   position: fixed;
   inset: 0;
   margin: auto;
-  width: $width;
+  width: fit-content;
+  max-width: min($max-width, calc(100% - 32px));
   height: fit-content;
-  padding: 28px 24px;
+  padding: 40px;
   border: none;
-  border-radius: 4px;
-  background-color: var(--dialog-bg);
-  color: var(--dialog-text);
+  border-radius: var(--popup-radius);
+  background-color: var(--popup-bg);
+  font-family: var(--font-theme);
+  color: var(--popup-title-color);
   text-align: center;
 
   &::backdrop {
-    background-color: var(--dialog-backdrop);
+    background-color: v.$overlay;
   }
 
   &[open] {
+    @include flex-center(column, var(--popup-gap));
     animation: popup-drop 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) both;
   }
 }
