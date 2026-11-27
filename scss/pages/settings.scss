@@ -1,0 +1,94 @@
+@use '../abstract/variables' as v;
+@use '../abstract/mixin' as mx;
+
+.settings-page {
+  background-color: v.$white;
+}
+
+.settings {
+  align-self: flex-start;
+
+  &__title {
+    @include mx.text-style(v.$font-headline, clamp(36px, 5vw, 54px), 700);
+    display: inline-block;
+    padding-bottom: 8px;
+    border-bottom: 4px solid v.$secondary-yellow;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  &__group {
+    @include mx.flex-center(column, 12px);
+    align-items: flex-start;
+    border: none;
+  }
+
+  &__group + &__group {
+    margin-top: 40px;
+  }
+
+  &__heading {
+    @include mx.flex-center(row, 8px);
+    @include mx.text-style(v.$font-body, 24px, 700);
+    margin-bottom: 8px;
+  }
+
+  &__icon {
+    &--palette {
+      color: v.$icon-palette;
+    }
+
+    &--player {
+      color: v.$icon-player;
+    }
+
+    &--board {
+      color: v.$icon-board;
+    }
+  }
+
+  &__preview {
+    width: 460px;
+    max-width: 100%;
+    height: 412px;
+    padding: 17px 7px;
+    border-radius: 16px;
+    background: var(--preview-bg);
+  }
+
+  &__preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.settings-bar {
+  @include mx.flex-center(row, 16px);
+  flex-wrap: wrap;
+  align-self: flex-end;
+  min-height: 81px;
+  padding: 14px 20px;
+  background-color: v.$grey-light;
+  font-family: v.$font-body;
+  font-size: 20px;
+
+  &__divider {
+    width: 8px;
+    height: 53px;
+    background-color: v.$secondary-yellow;
+    transform: skewX(-19deg);
+  }
+}

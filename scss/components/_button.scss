@@ -25,6 +25,24 @@
   }
 }
 
+.btn-small {
+  @include mx.button-reset;
+  @include mx.flex-center(row, 8px);
+  @include mx.text-style(v.$font-headline, 20px, 700);
+  padding: 14px 20px;
+  background-color: v.$secondary-yellow;
+
+  &:hover {
+    font-size: 22px;
+  }
+
+  &:disabled {
+    background-color: v.$grey-disabled;
+    color: v.$grey-disabled-text;
+    cursor: default;
+  }
+}
+
 .btn {
   display: inline-block;
   padding: 0.8rem 2.5rem;

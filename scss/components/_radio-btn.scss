@@ -1,0 +1,42 @@
+@use '../abstract/variables' as v;
+@use '../abstract/mixin' as mx;
+
+.radio-btn {
+  @include mx.flex-center(row, 10px);
+  @include mx.text-style(v.$font-body, 20px);
+  justify-content: flex-start;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    border: 2px solid v.$primary-dark;
+    border-radius: 50%;
+    transition: all v.$transition;
+  }
+
+  input:checked ~ &__icon {
+    box-shadow: inset 0 0 0 3px v.$white;
+    background-color: v.$primary-dark;
+  }
+
+  input:checked ~ &__label {
+    font-weight: 700;
+  }
+
+  input:focus-visible ~ &__icon {
+    outline: 2px solid v.$secondary-yellow;
+    outline-offset: 2px;
+  }
+
+  &:hover &__icon {
+    transform: scale(1.1);
+  }
+}
