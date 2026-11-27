@@ -1,4 +1,4 @@
-import type { GameSettings } from './types.js';
+import type { GameSettings, PlayerColor } from './types.js';
 import { getPreviewImagePath } from './cards.js';
 
 /** localStorage key of the saved settings. */
@@ -17,7 +17,7 @@ function collectSettings(form: HTMLFormElement): GameSettings {
   const data = new FormData(form);
   return {
     theme: String(data.get('theme')),
-    player: String(data.get('player')),
+    player: String(data.get('player')) as PlayerColor,
     board: Number(data.get('board')),
   };
 }

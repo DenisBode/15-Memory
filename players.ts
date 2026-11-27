@@ -1,8 +1,19 @@
+import type { Player, PlayerColor } from './types.js';
+
 /**
  * Randomly picks the player who starts the game.
  * @param random - Random number source between 0 and 1, replaceable in tests.
  * @returns Player 1 or player 2, each with 50 % chance.
  */
-export function pickStartPlayer(random: () => number = Math.random): 1 | 2 {
+export function pickStartPlayer(random: () => number = Math.random): Player {
   return random() < 0.5 ? 1 : 2;
+}
+
+/**
+ * Finds the player number that belongs to the color chosen in the settings.
+ * @param color - Chosen player color.
+ * @returns Player 1 for blue, player 2 for orange.
+ */
+export function getOwnPlayer(color: PlayerColor): Player {
+  return color === 'blue' ? 1 : 2;
 }
