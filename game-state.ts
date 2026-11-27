@@ -22,3 +22,12 @@ export function addPoint(state: GameState): GameState {
   scores[state.currentPlayer] += 1;
   return { ...state, scores };
 }
+
+export function isGameOver(state: GameState, totalPairs: number): boolean {
+  return state.scores[1] + state.scores[2] === totalPairs;
+}
+
+export function getWinner(scores: Record<Player, number>): Player | null {
+  if (scores[1] === scores[2]) return null;
+  return scores[1] > scores[2] ? 1 : 2;
+}

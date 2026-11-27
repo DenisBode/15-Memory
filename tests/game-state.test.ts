@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createGameState, switchPlayer, addPoint, getNextPlayer } from '../game-state.ts';
+import { createGameState, switchPlayer, addPoint, getNextPlayer, isGameOver, getWinner } from '../game-state.ts';
 
 test('nach Spieler 1 kommt Spieler 2 und umgekehrt', () => {
   assert.equal(getNextPlayer(1), 2);
@@ -29,4 +29,23 @@ test('addPoint verändert den übergebenen Zustand nicht', () => {
   const start = createGameState(1);
   addPoint(start);
   assert.deepEqual(start.scores, { 1: 0, 2: 0 });
+});
+
+test('Spiel ist vorbei, wenn alle Paare gefunden sind', () => {
+  const state = { currentPlayer: 1 as const, scores: { 1: 5, 2: 3 } };
+  assert.equal(isGameOver(state, 8), true);
+});
+
+test('Spiel läuft weiter, solange Paare fehlen', () => {
+  const state = { currentPlayer: 1 as const, scores: { 1: 2, 2: 3 } };
+  assert.equal(isGameOver(state, 8), false);
+});
+
+test('Spieler mit mehr Punkten gewinnt', () => {
+  assert.equal(getWinner({ 1: 5, 2: 3 }), 1);
+  assert.equal(getWinner({ 1: 2, 2: 6 }), 2);
+});
+
+test('bei Gleichstand gibt es keinen Gewinner', () => {
+  assert.equal(getWinner({ 1: 4, 2: 4 }), null);
 });
