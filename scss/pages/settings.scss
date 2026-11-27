@@ -36,17 +36,22 @@
   }
 
   &__form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr auto;
     gap: 40px;
+    margin-top: 56px;
+
+    @include mx.mobile(1024px) {
+      grid-template-columns: 1fr;
+    }
   }
 
-  &__content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 40px;
-    margin-top: 40px;
+  &__options {
+    grid-row: span 2;
+
+    @include mx.mobile(1024px) {
+      grid-row: auto;
+    }
   }
 
   &__group {
@@ -87,6 +92,7 @@
   }
 
   &__preview {
+    grid-column: -2;
     width: 460px;
     max-width: 100%;
     height: 412px;
@@ -105,7 +111,9 @@
 .settings-bar {
   @include mx.flex-center(row, 16px);
   flex-wrap: wrap;
-  align-self: flex-end;
+  grid-column: -2;
+  justify-self: end;
+  align-self: start;
   min-height: 81px;
   padding: 14px 20px;
   background-color: v.$grey-light;
