@@ -23,6 +23,7 @@
     border: 4px solid var(--card-frame, transparent);
     box-shadow: var(--card-shadow);
     background-size: cover;
+    background-origin: border-box;
     background-position: center;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
