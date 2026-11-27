@@ -11,7 +11,7 @@ const STORAGE_KEY = 'memorySettings';
 /** Page opened when the player leaves the game. */
 const SETTINGS_PAGE = 'settings.html';
 /** Time in ms before two different cards are turned back. */
-const HIDE_DELAY_MS = 1000;
+const HIDE_DELAY_MS = 1200;
 /** Time in ms between the last pair and the game over screen. */
 const FINISH_DELAY_MS = 1200;
 

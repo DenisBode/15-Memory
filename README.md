@@ -19,7 +19,7 @@ Memory-Spiel für zwei Spieler, entwickelt im TypeScript-Modul der Developer Aka
   - Der Startspieler wird zufällig ausgelost.
   - Die Karten drehen sich mit einer 3D-Animation um.
   - Bei einem Paar bekommt der Spieler einen Punkt und ist weiter am Zug.
-  - Bei zwei verschiedenen Karten drehen sie sich nach einer Sekunde zurück, und der andere Spieler ist dran.
+  - Bei zwei verschiedenen Karten drehen sie sich nach gut einer Sekunde zurück, und der andere Spieler ist dran.
 
 ### Extras
 
