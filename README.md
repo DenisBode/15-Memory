@@ -7,7 +7,7 @@ Memory-Spiel für zwei Spieler, entwickelt im TypeScript-Modul der Developer Aka
 1. **Startseite:** „Ready to play?“ mit animiertem Controller-Icon. Der Play-Button führt zu den Einstellungen.
 2. **Einstellungen:** Auswahl von Theme, Spielerfarbe und Spielfeldgröße. Eine Vorschau zeigt das gewählte Theme, die Leiste unten fasst die Auswahl zusammen.
 3. **Spiel:** Zwei Spieler decken abwechselnd je zwei Karten auf.
-4. **Game Over:** Nach dem letzten Paar erscheinen Gewinner oder Unentschieden und der Punktestand. Danach kann eine neue Runde starten.
+4. **Game Over:** Nach dem letzten Paar erscheint bildschirmfüllend „Game over“ mit dem Endstand. Kurz danach folgen der Gewinner mit Spielfigur in seiner Farbe oder ein Unentschieden. Von dort startet eine neue Runde oder es geht zurück zur Startseite.
 
 ## Funktionen
 
@@ -56,7 +56,7 @@ Danach `index.html` über einen lokalen Server öffnen, z. B. mit der VS-Code-Er
 ├── board.ts          Spielfeld: Karten erzeugen, umdrehen, Rahmen
 ├── header.ts         Kopfzeile: Punkte und Spieler am Zug
 ├── dialog.ts         Exit-Abfrage
-├── game-over.ts      Game-Over-Anzeige
+├── game-over.ts      Ergebnis-Ansicht: Endstand und Gewinner
 ├── deck.ts           Paare erzeugen und mischen
 ├── cards.ts          Bildpfade für Karten und Vorschau
 ├── grid.ts           Spaltenzahl je Spielfeldgröße
@@ -86,6 +86,4 @@ Danach `index.html` über einen lokalen Server öffnen, z. B. mit der VS-Code-Er
 
 ## Stand
 
-Noch offen:
-
-- Game Over als eigene Ergebnis-Ansicht nach Figma
+Alle Punkte der Checkliste sind umgesetzt. Noch offen sind nur Icons aus Figma (Überschriften der Einstellungen, Exit-Button).
