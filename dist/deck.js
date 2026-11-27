@@ -16,13 +16,12 @@ export function createPairIds(cardCount) {
 /**
  * Shuffles a list with the Fisher-Yates algorithm without changing the original.
  * @param items - List to shuffle.
- * @param random - Random number source between 0 and 1, replaceable in tests.
  * @returns New shuffled list.
  */
-export function shuffle(items, random = Math.random) {
+export function shuffle(items) {
     const result = [...items];
     for (let i = result.length - 1; i > 0; i--) {
-        const j = Math.floor(random() * (i + 1));
+        const j = Math.floor(Math.random() * (i + 1));
         [result[i], result[j]] = [result[j], result[i]];
     }
     return result;
@@ -30,9 +29,8 @@ export function shuffle(items, random = Math.random) {
 /**
  * Creates the shuffled order of pair numbers for the board.
  * @param cardCount - Number of cards on the board.
- * @param random - Random number source between 0 and 1, replaceable in tests.
  * @returns Shuffled list of pair numbers.
  */
-export function dealCards(cardCount, random = Math.random) {
-    return shuffle(createPairIds(cardCount), random);
+export function dealCards(cardCount) {
+    return shuffle(createPairIds(cardCount));
 }

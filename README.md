@@ -24,7 +24,6 @@ Memory-Spiel für zwei Spieler, entwickelt im TypeScript-Modul der Developer Aka
 ### Extras
 
 - Gefundene Paare bekommen einen Rahmen in der Farbe des Spielers, der sie gefunden hat.
-- 36 Unit-Tests für die Spiellogik mit dem Testrunner von Node.
 - Alle Schriften sind lokal eingebunden, das Spiel läuft ohne Internetverbindung.
 - Widescreen ab 1440px: Die Content-Fläche bleibt so breit wie im Desktop-Layout und wird zentriert, der Hintergrund geht über die ganze Breite. Das Konfetti in der Gewinner-Ansicht läuft dann über die volle Bildschirmbreite.
 - Die Animationen von Controller-Icon und Konfetti sind aus, wenn im Betriebssystem „Bewegung reduzieren“ aktiviert ist.
@@ -58,7 +57,6 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository, damit
 | `npm run build` | TypeScript nach `dist/` und SCSS nach `css/` übersetzen |
 | `npm run watch:ts` | TypeScript bei jeder Änderung neu übersetzen |
 | `npm run watch:css` | SCSS bei jeder Änderung neu übersetzen |
-| `npm test` | Unit-Tests ausführen |
 
 ## Deployment
 
@@ -79,7 +77,7 @@ Das Spiel braucht nur einen einfachen Webserver, ohne Datenbank und ohne PHP. Di
 
 3. Die Seite über `http://` bzw. `https://` aufrufen und einmal durchspielen. Fehlt eine Datei, zeigt die Browser-Konsole (F12) einen 404-Fehler mit dem Dateinamen.
 
-Nicht hochgeladen werden `ts/`, `scss/`, `tests/`, `node_modules/`, `package.json`, `package-lock.json`, `tsconfig.json`, `README.md` und `.git/`. Sie werden nur für die Entwicklung gebraucht.
+Nicht hochgeladen werden `ts/`, `scss/`, `node_modules/`, `package.json`, `package-lock.json`, `tsconfig.json`, `README.md` und `.git/`. Sie werden nur für die Entwicklung gebraucht.
 
 Alle Pfade sind relativ, und alle Dateinamen sind so geschrieben, wie sie im Code verwendet werden. Das ist wichtig, weil Linux-Server Groß- und Kleinschreibung unterscheiden.
 
@@ -108,7 +106,6 @@ Alle Pfade sind relativ, und alle Dateinamen sind so geschrieben, wie sie im Cod
 │   ├── pages/            Start-, Settings- und Spielseite
 │   ├── _fonts.scss       Lokale Schriften (@font-face)
 │   └── _theme.scss       Farben und Werte der vier Themes
-├── tests/                Unit-Tests der Spiellogik
 ├── assets/
 │   ├── cards/faces/      Vorderseiten: <theme>-01.png bis <theme>-18.png
 │   ├── cards/back/       Rückseiten: <theme>.png

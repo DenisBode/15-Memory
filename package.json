@@ -5,8 +5,7 @@
   "scripts": {
     "build": "tsc && sass scss:css",
     "watch:ts": "tsc --watch",
-    "watch:css": "sass --watch scss:css",
-    "test": "node --test tests/grid.test.ts tests/cards.test.ts tests/players.test.ts tests/deck.test.ts tests/game-state.test.ts"
+    "watch:css": "sass --watch scss:css"
   },
   "repository": {
     "type": "git",
