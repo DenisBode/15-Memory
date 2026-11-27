@@ -36,18 +36,26 @@
       </div>
     </dialog>
 
-    <dialog id="game-over" class="popup game-over">
-      <p class="game-over__subtitle" id="game-over-subtitle"></p>
-      <h2 class="popup__title" id="game-over-title"></h2>
-      <div class="game-over__scores">
-        <span class="game-over__score game-over__score--blue">Blue <span id="game-over-score-1">0</span></span>
-        <span class="game-over__score game-over__score--orange">Orange <span id="game-over-score-2">0</span></span>
+    <section class="result" id="result" hidden>
+      <div class="result__view" id="result-game-over">
+        <h2 class="result__gameover">Game over</h2>
+        <p class="result__final">Final score</p>
+        <div class="result__scores">
+          <span class="result__score result__score--blue">Blue <span id="result-score-1">0</span></span>
+          <span class="result__score result__score--orange">Orange <span id="result-score-2">0</span></span>
+        </div>
       </div>
-      <div class="popup__buttons">
-        <button class="popup-btn popup-btn--primary" type="button" id="game-over-restart">New game</button>
-        <a class="popup-btn popup-btn--secondary" href="index.html">Back to start</a>
+
+      <div class="result__view" id="result-winner" hidden>
+        <p class="result__label" id="result-label"></p>
+        <h2 class="result__winner" id="result-winner-name"></h2>
+        <div class="result__player-icon" id="result-player-icon" aria-hidden="true"></div>
+        <div class="result__buttons">
+          <button class="popup-btn popup-btn--primary" type="button" id="result-restart">New game</button>
+          <a class="popup-btn popup-btn--secondary" href="index.html">Back to start</a>
+        </div>
       </div>
-    </dialog>
+    </section>
 
     <script type="module" src="dist/game.js"></script>
   </body>

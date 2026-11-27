@@ -102,23 +102,95 @@
   justify-self: end;
 }
 
-.game-over__subtitle {
-  font-size: 20px;
+.result {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 16px;
+  background-color: var(--result-bg);
+  font-family: var(--font-theme);
+  color: var(--result-text);
+  text-align: center;
 }
-.game-over__scores {
+.result[hidden] {
+  display: none;
+}
+.result__view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.result__view[hidden] {
+  display: none;
+}
+.result__gameover {
+  font-size: clamp(48px, 9vw, var(--game-over-size));
+  font-weight: var(--game-over-weight);
+  letter-spacing: var(--game-over-spacing);
+  color: var(--game-over-color);
+  text-shadow: var(--game-over-shadow);
+}
+.result__final {
+  font-size: 26px;
+}
+.result__scores {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 24px;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 700;
 }
-.game-over__score--blue {
+.result__score--blue {
   color: var(--blue-color);
 }
-.game-over__score--orange {
+.result__score--orange {
   color: var(--orange-color);
+}
+.result__label {
+  font-size: 40px;
+}
+.result__winner {
+  font-size: clamp(32px, 6vw, var(--winner-size));
+  font-weight: 700;
+  text-transform: var(--winner-transform);
+  color: var(--winner-color, var(--result-text));
+}
+.result__player-icon {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 250px;
+  background-color: var(--player-icon-bg);
+}
+.result__player-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 60%;
+  height: 62.5%;
+  background-color: var(--player-icon-color, #ffffff);
+  -webkit-mask: url("../../assets/icons/chess-pawn.png") center/contain no-repeat;
+  mask: url("../../assets/icons/chess-pawn.png") center/contain no-repeat;
+}
+.result__player-icon[hidden] {
+  display: none;
+}
+.result__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 #game-board {

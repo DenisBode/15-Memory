@@ -1,3 +1,5 @@
+/** Display names of the players on the result screen. */
+const PLAYER_NAMES = { 1: 'Blue Player', 2: 'Orange Player' };
 /**
  * Returns the other player.
  * @param player - Current player.
@@ -60,5 +62,5 @@ export function getResultText(scores) {
     const winner = getWinner(scores);
     if (winner === null)
         return { subtitle: "It's a", title: 'Draw' };
-    return { subtitle: 'The winner is', title: `Player ${winner}` };
+    return { subtitle: 'The winner is', title: PLAYER_NAMES[winner] };
 }

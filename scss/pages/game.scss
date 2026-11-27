@@ -77,14 +77,43 @@
   }
 }
 
-.game-over {
-  &__subtitle {
-    font-size: 20px;
+.result {
+  position: fixed;
+  inset: 0;
+  @include mx.flex-center(column);
+  padding: 16px;
+  background-color: var(--result-bg);
+  font-family: var(--font-theme);
+  color: var(--result-text);
+  text-align: center;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__view {
+    @include mx.flex-center(column, 40px);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__gameover {
+    font-size: clamp(48px, 9vw, var(--game-over-size));
+    font-weight: var(--game-over-weight);
+    letter-spacing: var(--game-over-spacing);
+    color: var(--game-over-color);
+    text-shadow: var(--game-over-shadow);
+  }
+
+  &__final {
+    font-size: 26px;
   }
 
   &__scores {
     @include mx.flex-center(row, 24px);
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 700;
   }
 
@@ -96,6 +125,30 @@
     &--orange {
       color: var(--orange-color);
     }
+  }
+
+  &__label {
+    font-size: 40px;
+  }
+
+  &__winner {
+    font-size: clamp(32px, 6vw, var(--winner-size));
+    font-weight: 700;
+    text-transform: var(--winner-transform);
+    color: var(--winner-color, var(--result-text));
+  }
+
+  &__player-icon {
+    @include mx.pawn-icon(200px, 250px);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    @include mx.flex-center(row, 24px);
+    flex-wrap: wrap;
   }
 }
 

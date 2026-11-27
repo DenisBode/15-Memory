@@ -1,11 +1,7 @@
-import { getResultText } from './game-state.js';
-/**
- * Finds the game over dialog.
- * @returns The dialog, or null if it is missing.
- */
-function getGameOverDialog() {
-    return document.getElementById('game-over');
-}
+import { getResultText, getWinner } from './game-state.js';
+import { playerColor } from './header.js';
+/** Time in ms the "Game over" view is shown before the winner appears. */
+const WINNER_DELAY_MS = 2500;
 /**
  * Writes a text into the element with the given id.
  * @param id - Id of the element.
@@ -17,21 +13,52 @@ function setText(id, text) {
         element.textContent = text;
 }
 /**
- * Fills the game over dialog with winner and scores and opens it.
+ * Shows or hides the element with the given id.
+ * @param id - Id of the element.
+ * @param visible - True to show, false to hide.
+ */
+function setVisible(id, visible) {
+    const element = document.getElementById(id);
+    if (element)
+        element.hidden = !visible;
+}
+/**
+ * Colors winner name and player icon in the winner's color, or hides the icon on a draw.
+ * @param winner - Winning player, or null on a draw.
+ */
+function colorWinner(winner) {
+    const result = document.getElementById('result');
+    setVisible('result-player-icon', winner !== null);
+    if (!result || winner === null)
+        return;
+    result.style.setProperty('--winner-color', playerColor(winner));
+    result.style.setProperty('--player-icon-bg', playerColor(winner));
+}
+/**
+ * Switches from the "Game over" view to the winner view.
+ * @param scores - Final points per player.
+ */
+function showWinner(scores) {
+    const text = getResultText(scores);
+    setText('result-label', text.subtitle);
+    setText('result-winner-name', text.title);
+    colorWinner(getWinner(scores));
+    setVisible('result-game-over', false);
+    setVisible('result-winner', true);
+}
+/**
+ * Shows the final score full screen and the winner after a short delay.
  * @param scores - Final points per player.
  */
 export function showGameOver(scores) {
-    const result = getResultText(scores);
-    setText('game-over-subtitle', result.subtitle);
-    setText('game-over-title', result.title);
-    setText('game-over-score-1', String(scores[1]));
-    setText('game-over-score-2', String(scores[2]));
-    getGameOverDialog()?.showModal();
+    setText('result-score-1', String(scores[1]));
+    setText('result-score-2', String(scores[2]));
+    setVisible('result', true);
+    setTimeout(() => showWinner(scores), WINNER_DELAY_MS);
 }
 /**
- * Blocks closing the dialog with Escape and connects the new game button.
+ * Connects the new game button of the result screen.
  */
 export function setupGameOver() {
-    getGameOverDialog()?.addEventListener('cancel', (event) => event.preventDefault());
-    document.getElementById('game-over-restart')?.addEventListener('click', () => window.location.reload());
+    document.getElementById('result-restart')?.addEventListener('click', () => window.location.reload());
 }
