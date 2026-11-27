@@ -1,6 +1,30 @@
 @use '../abstract/variables' as v;
 @use '../abstract/mixin' as mx;
 
+.btn-primary {
+  @include mx.flex-center(row, 20px);
+  @include mx.text-style(v.$font-headline, 40px, 700);
+  padding: 24px;
+  background-color: v.$secondary-yellow;
+  text-decoration: none;
+
+  img,
+  svg {
+    width: 48px;
+    transition: transform v.$transition;
+  }
+
+  &:hover img,
+  &:hover svg {
+    transform: scale(1.1);
+  }
+
+  @include mx.mobile(480px) {
+    font-size: 28px;
+    padding: 16px;
+  }
+}
+
 .btn {
   display: inline-block;
   padding: 0.8rem 2.5rem;
