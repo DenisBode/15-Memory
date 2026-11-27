@@ -60,6 +60,29 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository, damit
 | `npm run watch:css` | SCSS bei jeder Änderung neu übersetzen |
 | `npm test` | Unit-Tests ausführen |
 
+## Deployment
+
+Das Spiel braucht nur einen einfachen Webserver, ohne Datenbank und ohne PHP. Die Einstellungen speichert der Browser im `localStorage`.
+
+1. `npm run build` ausführen, damit `css/` und `dist/` aktuell sind.
+2. Diese Dateien und Ordner in derselben Struktur hochladen, ins Hauptverzeichnis oder in einen Unterordner wie `/memory/`:
+
+   ```
+   index.html
+   settings.html
+   game.html
+   css/
+   dist/
+   assets/
+   fonts/
+   ```
+
+3. Die Seite über `http://` bzw. `https://` aufrufen und einmal durchspielen. Fehlt eine Datei, zeigt die Browser-Konsole (F12) einen 404-Fehler mit dem Dateinamen.
+
+Nicht hochgeladen werden `ts/`, `scss/`, `tests/`, `node_modules/`, `package.json`, `package-lock.json`, `tsconfig.json`, `README.md` und `.git/`. Sie werden nur für die Entwicklung gebraucht.
+
+Alle Pfade sind relativ, und alle Dateinamen sind so geschrieben, wie sie im Code verwendet werden. Das ist wichtig, weil Linux-Server Groß- und Kleinschreibung unterscheiden.
+
 ## Projektstruktur
 
 ```
