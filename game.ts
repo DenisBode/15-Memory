@@ -1,8 +1,8 @@
 import type { GameSettings } from './types.js';
 import { createGameState, switchPlayer, addPoint, isGameOver, type GameState } from './game-state.js';
-import { pickStartPlayer } from './players.js';
+import { pickStartPlayer, getOwnPlayer } from './players.js';
 import { renderBoard, isFlipped, setCardFlipped, hideCards, isSamePair, setFrame } from './board.js';
-import { renderScores, setCurrentPlayer } from './header.js';
+import { renderScores, setCurrentPlayer, markOwnPlayer } from './header.js';
 import { setupExitDialog } from './dialog.js';
 import { showGameOver, setupGameOver } from './game-over.js';
 
@@ -107,6 +107,7 @@ const settings = readSettings();
 if (settings) {
   totalPairs = settings.board / 2;
   applyTheme(settings.theme);
+  markOwnPlayer(getOwnPlayer(settings.player));
   renderBoard(settings, flipCard);
 }
 setupExitDialog(exitGame);

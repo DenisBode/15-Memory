@@ -52,6 +52,11 @@
     &--orange {
       color: var(--orange-color);
     }
+
+    &--own::after {
+      content: ' (You)';
+      font-size: 0.6em;
+    }
   }
 
   &__current {

@@ -35,3 +35,11 @@ export function setCurrentPlayer(player) {
         return;
     icon.style.setProperty('--player-icon-bg', playerColor(player));
 }
+/**
+ * Marks the score of the own player in the header with "(You)".
+ * @param player - Player whose color was chosen in the settings.
+ */
+export function markOwnPlayer(player) {
+    const score = getScoreElement(player)?.closest('.game-header__score');
+    score?.classList.add('game-header__score--own');
+}

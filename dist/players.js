@@ -6,3 +6,11 @@
 export function pickStartPlayer(random = Math.random) {
     return random() < 0.5 ? 1 : 2;
 }
+/**
+ * Finds the player number that belongs to the color chosen in the settings.
+ * @param color - Chosen player color.
+ * @returns Player 1 for blue, player 2 for orange.
+ */
+export function getOwnPlayer(color) {
+    return color === 'blue' ? 1 : 2;
+}

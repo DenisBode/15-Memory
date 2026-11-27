@@ -64,6 +64,10 @@
 .game-header__score--orange {
   color: var(--orange-color);
 }
+.game-header__score--own::after {
+  content: " (You)";
+  font-size: 0.6em;
+}
 .game-header__current {
   display: flex;
   flex-direction: row;

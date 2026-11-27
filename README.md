@@ -13,6 +13,7 @@ Memory-Spiel für zwei Spieler, entwickelt im TypeScript-Modul der Developer Aka
 
 - **Themes:** Code Vibes, Gaming, DA Projects und Foods. Jedes Theme hat eigene Farben, Schriften, Kartengrößen und Kartenmotive.
 - **Spielfeldgrößen:** 16 Karten (4 × 4), 24 Karten (6 × 4) und 36 Karten (6 × 6).
+- **Spielerfarbe:** Die in den Einstellungen gewählte Farbe ist die eigene. Im Punktestand steht dahinter „(You)“.
 - **Kopfzeile:** Punktestand beider Spieler, Anzeige des Spielers am Zug und ein „Exit game“-Button mit Sicherheitsabfrage.
 - **Spielregeln:**
   - Der Startspieler wird zufällig ausgelost.
@@ -87,5 +88,4 @@ Danach `index.html` über einen lokalen Server öffnen, z. B. mit der VS-Code-Er
 
 Noch offen:
 
-- Auswahl der Spielerfarbe in den Einstellungen im Spiel auswerten
 - Game Over als eigene Ergebnis-Ansicht nach Figma
