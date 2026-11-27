@@ -17,12 +17,13 @@ function clearBoard(board) {
     board.replaceChildren();
 }
 /**
- * Sets the number of grid columns for the board size.
+ * Sets the number of grid columns and marks the board size for the card gap in CSS.
  * @param board - Board element.
  * @param cardCount - Number of cards on the board.
  */
 function setGridColumns(board, cardCount) {
     board.style.gridTemplateColumns = getGridTemplate(cardCount);
+    board.dataset.size = String(cardCount);
 }
 /**
  * Creates one side of a card with its image.

@@ -276,8 +276,11 @@
 }
 #game-board {
   display: grid;
-  gap: 16px;
+  gap: 6px;
   justify-content: center;
+}
+#game-board[data-size="16"] {
+  gap: 16px;
 }
 
 /*# sourceMappingURL=game.css.map */

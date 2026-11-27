@@ -18,7 +18,7 @@
 
   &__face {
     position: absolute;
-    inset: 0;
+    inset: var(--card-bleed-back);
     border-radius: var(--card-radius);
     border: 4px solid var(--card-frame, transparent);
     box-shadow: var(--card-shadow);
@@ -28,6 +28,7 @@
     -webkit-backface-visibility: hidden;
 
     &--front {
+      inset: var(--card-bleed-front);
       transform: rotateY(180deg);
       background-color: var(--card-front);
     }

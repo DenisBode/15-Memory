@@ -256,6 +256,10 @@
 
 #game-board {
   display: grid;
-  gap: 16px;
+  gap: 6px;
   justify-content: center;
+
+  &[data-size='16'] {
+    gap: 16px;
+  }
 }

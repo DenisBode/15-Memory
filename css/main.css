@@ -94,6 +94,8 @@
   --current-color: #ffffff;
   --card-width: 120px;
   --card-height: 120px;
+  --card-bleed-back: 0;
+  --card-bleed-front: 0;
   --card-radius: 0;
   --card-shadow: none;
   --card-front: #e8f3f0;
@@ -172,6 +174,8 @@
   --current-color: #ffffff;
   --card-width: 120px;
   --card-height: 120px;
+  --card-bleed-back: 0;
+  --card-bleed-front: 0;
   --card-radius: 0;
   --card-shadow: none;
   --card-front: #e8f3f0;
@@ -248,8 +252,10 @@
   --current-weight: 700;
   --current-spacing: 0.07em;
   --current-color: #ffffff;
-  --card-width: 129px;
-  --card-height: 144px;
+  --card-width: 105px;
+  --card-height: 120px;
+  --card-bleed-back: -6px -18px -18px -6px;
+  --card-bleed-front: -6px -6px -18px -18px;
   --card-radius: 0;
   --card-shadow: none;
   --card-front: #f6f1f3;
@@ -328,6 +334,8 @@
   --current-color: #1e7594;
   --card-width: 120px;
   --card-height: 100px;
+  --card-bleed-back: 0;
+  --card-bleed-front: 0;
   --card-radius: 13px;
   --card-shadow: none;
   --card-front: #eaf2f4;
@@ -407,6 +415,8 @@
   --current-color: #a45212;
   --card-width: 122px;
   --card-height: 122px;
+  --card-bleed-back: 0;
+  --card-bleed-front: 0;
   --card-radius: 0;
   --card-shadow: none;
   --card-front: #f4ece4;
@@ -578,7 +588,7 @@
 }
 .card__face {
   position: absolute;
-  inset: 0;
+  inset: var(--card-bleed-back);
   border-radius: var(--card-radius);
   border: 4px solid var(--card-frame, transparent);
   box-shadow: var(--card-shadow);
@@ -588,6 +598,7 @@
   -webkit-backface-visibility: hidden;
 }
 .card__face--front {
+  inset: var(--card-bleed-front);
   transform: rotateY(180deg);
   background-color: var(--card-front);
 }
