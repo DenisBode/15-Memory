@@ -14,6 +14,7 @@
 
 .settings {
   align-self: flex-start;
+  padding-top: clamp(32px, 11.4vh, 117px);
 }
 .settings__title {
   font-family: "Red Rose", sans-serif;
