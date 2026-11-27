@@ -39,6 +39,8 @@ npm run build
 
 Danach `index.html` über einen lokalen Server öffnen, z. B. mit der VS-Code-Erweiterung „Live Server“. Ein Doppelklick auf die Datei reicht nicht, weil die Skripte als ES-Module geladen werden.
 
+Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So läuft das Spiel auch ohne eigenen Build, z. B. direkt über GitHub Pages. Nach Änderungen an `ts/` oder `scss/` müssen sie mit `npm run build` neu erzeugt werden.
+
 | Befehl | Zweck |
 |---|---|
 | `npm run build` | TypeScript nach `dist/` und SCSS nach `css/` übersetzen |
