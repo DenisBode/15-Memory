@@ -1,7 +1,6 @@
 :root {
   --btn-bg: #f0ea6e;
   --btn-text: #000;
-  --btn-glow: rgba(0, 229, 255, 0.6);
   --btn-exit-bg: #86e9d633;
   --btn-exit-text: #86e9d6;
   --btn-exit-border: #86e9d6;
@@ -58,10 +57,6 @@
   background-color: var(--btn-bg);
   cursor: pointer;
 }
-.btn:hover {
-  color: var(--btn-text);
-  box-shadow: 0 0 20px var(--btn-glow);
-}
 .btn--exit {
   padding: 6px 14px;
   font-family: inherit;
@@ -70,9 +65,6 @@
   background-color: var(--btn-exit-bg);
   border: 1px solid var(--btn-exit-border);
   border-radius: 4px;
-}
-.btn--exit:hover {
-  color: var(--btn-exit-text);
 }
 
 .card {
@@ -143,13 +135,36 @@ textarea {
   font-family: inherit;
 }
 
+@keyframes controller-enter {
+  from {
+    opacity: 0;
+    transform: translate(-40%, 40%) rotate(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+}
+@keyframes controller-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-16px) rotate(-4deg);
+  }
+}
 .start-decor {
   position: fixed;
   left: -4%;
   bottom: -6%;
   width: min(40vw, 360px);
-  opacity: 1;
   pointer-events: none;
+  animation: controller-enter 1.2s ease-out both, controller-float 6s ease-in-out 1.2s infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .start-decor {
+    animation: none;
+  }
 }
 
 #start-screen {
