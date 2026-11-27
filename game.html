@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memory Game</title>
+    <link rel="icon" type="image/png" href="assets/icons/controller-small.png" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/pages/game.css" />
   </head>
@@ -11,15 +12,16 @@
     <main class="game-container">
       <section class="game-panel">
         <header class="game-header">
+          <h1 class="game-header__title">Memory Game</h1>
           <div class="game-header__scores">
             <span class="game-header__score game-header__score--blue">Blue <span id="score">0</span></span>
             <span class="game-header__score game-header__score--orange">Orange <span id="score2">0</span></span>
           </div>
 
-          <div class="game-header__current">
+          <p class="game-header__current">
             Current player:
-            <div class="game-header__player-icon" id="current-player-icon" aria-hidden="true"></div>
-          </div>
+            <span class="game-header__player-icon" id="current-player-icon" aria-hidden="true"></span>
+          </p>
 
           <button class="btn btn--exit game-header__exit" type="button">
             <span class="btn__exit-icon" aria-hidden="true"></span>

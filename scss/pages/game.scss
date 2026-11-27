@@ -33,6 +33,10 @@
   background-color: var(--header-bg);
   font-family: var(--font-theme);
 
+  &__title {
+    @include mx.visually-hidden;
+  }
+
   &__scores {
     @include mx.flex-center(row, 20px);
     justify-self: start;
