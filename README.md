@@ -99,3 +99,5 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So l�
 ## Stand
 
 Alle Punkte der Checkliste sind umgesetzt, das Design folgt der Figma-Vorlage. Offen ist nichts.
+
+**Bildschirmgrößen:** Das Layout ist für Desktop nach der Figma-Vorlage umgesetzt (1440px, mit Widescreen-Breakpoint ab 1440px) und funktioniert auch auf Tablets im Querformat. Eine Optimierung für Smartphones ist laut Checkliste nicht gefordert und wurde bewusst nicht umgesetzt.
