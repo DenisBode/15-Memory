@@ -300,7 +300,7 @@
   --winner-bg: #294f60;
   --winner-text: #ffffff;
   --draw-color: #ed1b76;
-  --confetti-display: none;
+  --confetti-display: block;
   --pawn-display: none;
   --trophy-display: block;
   --icon-box-bg: transparent;
@@ -379,7 +379,7 @@
   --winner-text: #ffffff;
   --winner-name-color: #ffffff;
   --draw-color: #ed5b50;
-  --confetti-display: none;
+  --confetti-display: block;
   --pawn-display: block;
   --trophy-display: none;
   --icon-box-bg: transparent;
@@ -458,7 +458,7 @@
   --winner-text: #f3832d;
   --winner-name-color: #a45212;
   --draw-color: #f3832d;
-  --confetti-display: none;
+  --confetti-display: block;
   --pawn-display: block;
   --trophy-display: none;
   --icon-box-bg: #f4e4d4;
