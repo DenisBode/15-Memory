@@ -50,33 +50,36 @@ Danach `index.html` über einen lokalen Server öffnen, z. B. mit der VS-Code-Er
 
 ```
 ├── index.html, settings.html, game.html
-├── types.ts          Gemeinsame Typen (GameSettings, Player)
-├── settings.ts       Einstellungen lesen, Vorschau, Speichern
-├── game.ts           Spielablauf: verbindet die Module
-├── game-state.ts     Spielzustand ohne DOM: Spieler, Punkte, Spielende, Gewinner
-├── board.ts          Spielfeld: Karten erzeugen, umdrehen, Rahmen
-├── header.ts         Kopfzeile: Punkte und Spieler am Zug
-├── dialog.ts         Exit-Abfrage
-├── game-over.ts      Ergebnis-Ansicht: Endstand und Gewinner
-├── deck.ts           Paare erzeugen und mischen
-├── cards.ts          Bildpfade für Karten und Vorschau
-├── grid.ts           Spaltenzahl je Spielfeldgröße
-├── players.ts        Startspieler auslosen
-├── tests/            Unit-Tests
-├── scss/
-│   ├── abstract/     Variablen und Mixins
-│   ├── components/   Buttons, Karten, Popups, Radio-Buttons
-│   ├── layout/       Seitenlayout
-│   ├── pages/        Start-, Settings- und Spielseite
-│   └── _theme.scss   Farben und Werte der vier Themes
+├── ts/                   TypeScript-Quellcode
+│   ├── types.ts          Gemeinsame Typen (GameSettings, Player, PlayerColor)
+│   ├── settings.ts       Einstellungen lesen, Vorschau, Speichern
+│   ├── game.ts           Spielablauf: verbindet die Module
+│   ├── game-state.ts     Spielzustand ohne DOM: Spieler, Punkte, Spielende, Gewinner
+│   ├── board.ts          Spielfeld: Karten erzeugen, umdrehen, Rahmen
+│   ├── header.ts         Kopfzeile: Punkte und Spieler am Zug
+│   ├── dialog.ts         Exit-Abfrage
+│   ├── game-over.ts      Ergebnis-Ansicht: Endstand und Gewinner
+│   ├── deck.ts           Paare erzeugen und mischen
+│   ├── cards.ts          Bildpfade für Karten und Vorschau
+│   ├── grid.ts           Spaltenzahl je Spielfeldgröße
+│   └── players.ts        Startspieler auslosen, eigene Spielerfarbe
+├── scss/                 Styles
+│   ├── abstract/         Variablen und Mixins
+│   ├── components/       Buttons, Karten, Popups, Radio-Buttons
+│   ├── layout/           Seitenlayout
+│   ├── pages/            Start-, Settings- und Spielseite
+│   ├── _fonts.scss       Lokale Schriften (@font-face)
+│   └── _theme.scss       Farben und Werte der vier Themes
+├── tests/                Unit-Tests der Spiellogik
 ├── assets/
-│   ├── cards/faces/  Vorderseiten: <theme>-01.png bis <theme>-18.png
-│   ├── cards/back/   Rückseiten: <theme>.png
-│   ├── previews/     Vorschaubilder: <theme>.png
-│   ├── result/       Ergebnis: Spielfigur, Pokal, Waage, Konfetti
-│   └── icons/        Icons der Oberfläche
-├── fonts/            Lokale Schriften
-├── css/, dist/       Übersetzte Dateien (werden mit npm run build erzeugt)
+│   ├── cards/faces/      Vorderseiten: <theme>-01.png bis <theme>-18.png
+│   ├── cards/back/       Rückseiten: <theme>.png
+│   ├── previews/         Vorschaubilder: <theme>.png
+│   ├── result/           Ergebnis: Spielfigur, Pokal, Waage, Konfetti
+│   └── icons/            Icons der Oberfläche
+├── fonts/                Schriftdateien mit Lizenz (OFL.txt)
+├── dist/                 Übersetztes JavaScript aus ts/
+└── css/                  Übersetztes CSS aus scss/
 ```
 
 ## Technik

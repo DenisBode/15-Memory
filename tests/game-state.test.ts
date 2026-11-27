@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createGameState, switchPlayer, addPoint, getNextPlayer, isGameOver, getWinner, getResultText } from '../game-state.ts';
+import { createGameState, switchPlayer, addPoint, getNextPlayer, isGameOver, getWinner, getResultText } from '../ts/game-state.ts';
 
 test('nach Spieler 1 kommt Spieler 2 und umgekehrt', () => {
   assert.equal(getNextPlayer(1), 2);

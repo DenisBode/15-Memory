@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { getBackImagePath, getPreviewImagePath, getFaceImagePath } from '../cards.ts';
+import { getBackImagePath, getPreviewImagePath, getFaceImagePath } from '../ts/cards.ts';
 
 test('Rückseite für code-vibes liegt unter assets/cards/back', () => {
   assert.equal(getBackImagePath('code-vibes'), 'assets/cards/back/code-vibes.png');

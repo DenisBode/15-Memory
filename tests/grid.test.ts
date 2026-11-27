@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { getColumnCount, getGridTemplate } from '../grid.ts';
+import { getColumnCount, getGridTemplate } from '../ts/grid.ts';
 
 test('16 Karten ergeben 4 Spalten', () => {
   assert.equal(getColumnCount(16), 4);

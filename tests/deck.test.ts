@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createPairIds, shuffle, dealCards } from '../deck.ts';
+import { createPairIds, shuffle, dealCards } from '../ts/deck.ts';
 
 test('createPairIds erzeugt für 4 Karten zwei Paare', () => {
   assert.deepEqual(createPairIds(4), [1, 1, 2, 2]);
