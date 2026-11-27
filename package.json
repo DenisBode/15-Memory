@@ -2,7 +2,6 @@
   "name": "15-memory",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
   "scripts": {
     "build": "tsc && sass scss:css",
     "watch:ts": "tsc --watch",
