@@ -30,18 +30,28 @@ Memory-Spiel für zwei Spieler, entwickelt im TypeScript-Modul der Developer Aka
 - Die Animationen von Controller-Icon und Konfetti sind aus, wenn im Betriebssystem „Bewegung reduzieren“ aktiviert ist.
 - Die Felder in der Settings-Leiste sind so breit wie ihre längste Option, damit beim Umschalten nichts springt.
 
-## Starten
+## Installation
 
-Voraussetzung: Node.js ab Version 22.
+### Voraussetzungen
+
+- [Node.js](https://nodejs.org/) ab Version 22 (npm ist dabei)
+- [Git](https://git-scm.com/)
+- ein lokaler Webserver, z. B. die VS-Code-Erweiterung „Live Server“
+
+### Schritte
 
 ```bash
+git clone https://github.com/DenisBode/15-Memory.git
+cd 15-Memory
 npm install
 npm run build
 ```
 
-Danach `index.html` über einen lokalen Server öffnen, z. B. mit der VS-Code-Erweiterung „Live Server“. Ein Doppelklick auf die Datei reicht nicht, weil die Skripte als ES-Module geladen werden.
+Danach `index.html` über den lokalen Server öffnen, z. B. in VS Code per Rechtsklick → „Open with Live Server“. Ein Doppelklick auf die Datei reicht nicht, weil die Skripte als ES-Module geladen werden.
 
-Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So läuft das Spiel auch ohne eigenen Build, z. B. direkt über GitHub Pages. Nach Änderungen an `ts/` oder `scss/` müssen sie mit `npm run build` neu erzeugt werden.
+Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository, damit das Spiel auch ohne eigenen Build läuft. Nach Änderungen an `ts/` oder `scss/` müssen sie mit `npm run build` neu erzeugt werden.
+
+## Scripts
 
 | Befehl | Zweck |
 |---|---|
