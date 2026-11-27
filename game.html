@@ -36,6 +36,19 @@
       </div>
     </dialog>
 
+    <dialog id="game-over" class="game-over">
+      <p class="game-over__subtitle" id="game-over-subtitle"></p>
+      <h2 class="game-over__title" id="game-over-title"></h2>
+      <div class="game-over__scores">
+        <span class="game-over__score game-over__score--one">Player 1: <span id="game-over-score-1">0</span></span>
+        <span class="game-over__score game-over__score--two">Player 2: <span id="game-over-score-2">0</span></span>
+      </div>
+      <div class="game-over__actions">
+        <button class="btn" type="button" id="game-over-restart">New game</button>
+        <a class="btn btn--exit" href="index.html">Back to start</a>
+      </div>
+    </dialog>
+
     <script type="module" src="dist/game.js"></script>
   </body>
 </html>

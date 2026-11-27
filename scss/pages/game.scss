@@ -100,6 +100,41 @@
   }
 }
 
+.game-over {
+  @include mx.popup(360px);
+
+  &__subtitle {
+    font-size: 1.1rem;
+  }
+
+  &__title {
+    margin: 4px 0 16px;
+    font-size: 2rem;
+  }
+
+  &__scores {
+    @include mx.flex-center;
+    gap: 24px;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+
+  &__score {
+    &--one {
+      color: var(--player-1-color);
+    }
+
+    &--two {
+      color: var(--player-2-color);
+    }
+  }
+
+  &__actions {
+    @include mx.flex-center;
+    gap: 12px;
+  }
+}
+
 #game-board {
   flex: 0 0 auto;
   width: fit-content;

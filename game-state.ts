@@ -5,6 +5,11 @@ export interface GameState {
   scores: Record<Player, number>;
 }
 
+export interface ResultText {
+  subtitle: string;
+  title: string;
+}
+
 export function getNextPlayer(player: Player): Player {
   return player === 1 ? 2 : 1;
 }
@@ -30,4 +35,10 @@ export function isGameOver(state: GameState, totalPairs: number): boolean {
 export function getWinner(scores: Record<Player, number>): Player | null {
   if (scores[1] === scores[2]) return null;
   return scores[1] > scores[2] ? 1 : 2;
+}
+
+export function getResultText(scores: Record<Player, number>): ResultText {
+  const winner = getWinner(scores);
+  if (winner === null) return { subtitle: "It's a", title: 'Draw' };
+  return { subtitle: 'The winner is', title: `Player ${winner}` };
 }

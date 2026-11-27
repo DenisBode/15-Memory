@@ -1,16 +1,19 @@
 import type { GameSettings } from './types.js';
-import { createGameState, switchPlayer, addPoint, type GameState } from './game-state.js';
+import { createGameState, switchPlayer, addPoint, isGameOver, type GameState } from './game-state.js';
 import { pickStartPlayer } from './players.js';
 import { renderBoard, isFlipped, setCardFlipped, hideCards, isSamePair, setFrame } from './board.js';
 import { renderScores, setCurrentPlayer } from './header.js';
 import { setupExitDialog } from './dialog.js';
+import { showGameOver, setupGameOver } from './game-over.js';
 
 const STORAGE_KEY = 'memorySettings';
 const SETTINGS_PAGE = 'settings.html';
 const HIDE_DELAY_MS = 1000;
+const FINISH_DELAY_MS = 1200;
 
 let state: GameState = createGameState(pickStartPlayer());
 let openCards: HTMLElement[] = [];
+let totalPairs = 0;
 
 function readSettings(): GameSettings | null {
   const raw = localStorage.getItem(STORAGE_KEY);
@@ -26,11 +29,17 @@ function exitGame(): void {
   window.location.href = SETTINGS_PAGE;
 }
 
+function checkGameOver(): void {
+  if (!isGameOver(state, totalPairs)) return;
+  setTimeout(() => showGameOver(state.scores), FINISH_DELAY_MS);
+}
+
 function handleMatch(): void {
   setFrame(openCards, state.currentPlayer);
   state = addPoint(state);
   renderScores(state.scores);
   openCards = [];
+  checkGameOver();
 }
 
 function handleMismatch(first: HTMLElement, second: HTMLElement): void {
@@ -60,9 +69,11 @@ function flipCard(card: HTMLElement): void {
 
 const settings = readSettings();
 if (settings) {
+  totalPairs = settings.board / 2;
   applyTheme(settings.theme);
   renderBoard(settings, flipCard);
 }
 setupExitDialog(exitGame);
+setupGameOver();
 setCurrentPlayer(state.currentPlayer);
 renderScores(state.scores);

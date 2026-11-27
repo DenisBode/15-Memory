@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createGameState, switchPlayer, addPoint, getNextPlayer, isGameOver, getWinner } from '../game-state.ts';
+import { createGameState, switchPlayer, addPoint, getNextPlayer, isGameOver, getWinner, getResultText } from '../game-state.ts';
 
 test('nach Spieler 1 kommt Spieler 2 und umgekehrt', () => {
   assert.equal(getNextPlayer(1), 2);
@@ -48,4 +48,12 @@ test('Spieler mit mehr Punkten gewinnt', () => {
 
 test('bei Gleichstand gibt es keinen Gewinner', () => {
   assert.equal(getWinner({ 1: 4, 2: 4 }), null);
+});
+
+test('Ergebnistext nennt den Gewinner', () => {
+  assert.deepEqual(getResultText({ 1: 3, 2: 5 }), { subtitle: 'The winner is', title: 'Player 2' });
+});
+
+test('Ergebnistext bei Gleichstand', () => {
+  assert.deepEqual(getResultText({ 1: 4, 2: 4 }), { subtitle: "It's a", title: 'Draw' });
 });
