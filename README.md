@@ -80,7 +80,7 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So l�
 │   ├── cards/back/       Rückseiten: <theme>.png
 │   ├── previews/         Vorschaubilder: <theme>.png
 │   ├── result/           Ergebnis: Spielfigur, Pokal, Waage, Konfetti
-│   └── icons/            Icons der Oberfläche: Controller, Spielfigur, Play, Exit
+│   └── icons/            Icons der Oberfläche: Controller, Spielfigur, Play, Exit, Settings-Überschriften
 ├── fonts/                Schriftdateien mit Lizenz (OFL.txt)
 ├── dist/                 Übersetztes JavaScript aus ts/
 └── css/                  Übersetztes CSS aus scss/
@@ -98,4 +98,4 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So l�
 
 ## Stand
 
-Alle Punkte der Checkliste sind umgesetzt. Noch offen sind nur die Icons der Überschriften in den Einstellungen aus Figma.
+Alle Punkte der Checkliste sind umgesetzt, das Design folgt der Figma-Vorlage. Offen ist nichts.

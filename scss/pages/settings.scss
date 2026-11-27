@@ -77,17 +77,12 @@
   &__icon {
     width: 28px;
     height: 28px;
+    background: center / contain no-repeat;
 
-    &--palette {
-      color: v.$icon-palette;
-    }
-
-    &--player {
-      color: v.$icon-player;
-    }
-
-    &--board {
-      color: v.$icon-board;
+    @each $name in palette, player, board {
+      &--#{$name} {
+        background-image: url('../../assets/icons/#{$name}.png');
+      }
     }
   }
 

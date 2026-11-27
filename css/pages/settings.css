@@ -97,15 +97,16 @@
 .settings__icon {
   width: 28px;
   height: 28px;
+  background: center/contain no-repeat;
 }
 .settings__icon--palette {
-  color: #da1eba;
+  background-image: url("../../assets/icons/palette.png");
 }
 .settings__icon--player {
-  color: #1ae5be;
+  background-image: url("../../assets/icons/player.png");
 }
 .settings__icon--board {
-  color: #0635c9;
+  background-image: url("../../assets/icons/board.png");
 }
 .settings__preview {
   grid-column: -2;
