@@ -1,0 +1,39 @@
+@keyframes popup-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin popup($width: 280px) {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: $width;
+  height: fit-content;
+  padding: 28px 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--dialog-bg);
+  color: var(--dialog-text);
+  text-align: center;
+
+  &::backdrop {
+    background-color: var(--dialog-backdrop);
+  }
+
+  &[open] {
+    animation: popup-drop 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+  }
+}
