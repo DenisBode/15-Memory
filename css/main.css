@@ -150,6 +150,9 @@
   --icon-box-bg: transparent;
   --icon-box-padding: 0;
   --icon-box-shadow: none;
+  --score-square-display: inline-block;
+  --score-pawn-display: none;
+  --score-name-display: inline;
 }
 
 :root[data-theme=code-vibes] {
@@ -225,6 +228,9 @@
   --icon-box-bg: transparent;
   --icon-box-padding: 0;
   --icon-box-shadow: none;
+  --score-square-display: inline-block;
+  --score-pawn-display: none;
+  --score-name-display: inline;
 }
 
 :root[data-theme=gaming] {
@@ -300,6 +306,9 @@
   --icon-box-bg: transparent;
   --icon-box-padding: 0;
   --icon-box-shadow: none;
+  --score-square-display: none;
+  --score-pawn-display: inline-block;
+  --score-name-display: none;
 }
 
 :root[data-theme=da-projects] {
@@ -376,6 +385,9 @@
   --icon-box-bg: transparent;
   --icon-box-padding: 0;
   --icon-box-shadow: none;
+  --score-square-display: none;
+  --score-pawn-display: inline-block;
+  --score-name-display: none;
 }
 
 :root[data-theme=foods] {
@@ -452,6 +464,9 @@
   --icon-box-bg: #f4e4d4;
   --icon-box-padding: 24px 32px;
   --icon-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  --score-square-display: none;
+  --score-pawn-display: inline-block;
+  --score-name-display: none;
 }
 
 .btn-primary {

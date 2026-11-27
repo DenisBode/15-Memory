@@ -41,8 +41,18 @@
         <h2 class="result__gameover">Game over</h2>
         <p class="result__final">Final score</p>
         <div class="result__scores">
-          <span class="result__score result__score--blue">Blue <span id="result-score-1">0</span></span>
-          <span class="result__score result__score--orange">Orange <span id="result-score-2">0</span></span>
+          <span class="result__score result__score--blue">
+            <span class="result__score-square" aria-hidden="true"></span>
+            <span class="result__score-pawn" aria-hidden="true"></span>
+            <span class="result__score-name">Blue</span>
+            <span id="result-score-1">0</span>
+          </span>
+          <span class="result__score result__score--orange">
+            <span class="result__score-square" aria-hidden="true"></span>
+            <span class="result__score-pawn" aria-hidden="true"></span>
+            <span class="result__score-name">Orange</span>
+            <span id="result-score-2">0</span>
+          </span>
         </div>
       </div>
 
@@ -55,7 +65,7 @@
           <img class="result__trophy" src="assets/result/trophy.png" alt="" />
           <div class="result__scale" aria-hidden="true"></div>
         </div>
-        <a class="popup-btn popup-btn--primary" href="index.html">Back to start</a>
+        <a class="popup-btn popup-btn--primary" href="index.html" id="result-home">Back to start</a>
       </div>
     </section>
 

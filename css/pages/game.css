@@ -165,11 +165,35 @@
   font-size: 24px;
   font-weight: 700;
 }
+.result__score {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
 .result__score--blue {
   color: var(--blue-color);
 }
 .result__score--orange {
   color: var(--orange-color);
+}
+.result__score-square {
+  display: var(--score-square-display);
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+}
+.result__score-pawn {
+  display: var(--score-pawn-display);
+  width: 16px;
+  height: 20px;
+  background-color: currentColor;
+  -webkit-mask: url("../../assets/result/winner-pawn.png") center/contain no-repeat;
+  mask: url("../../assets/result/winner-pawn.png") center/contain no-repeat;
+}
+.result__score-name {
+  display: var(--score-name-display);
 }
 .result__confetti {
   display: var(--confetti-display);

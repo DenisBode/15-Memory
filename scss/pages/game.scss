@@ -138,6 +138,8 @@
   }
 
   &__score {
+    @include mx.flex-center(row, 6px);
+
     &--blue {
       color: var(--blue-color);
     }
@@ -145,6 +147,25 @@
     &--orange {
       color: var(--orange-color);
     }
+  }
+
+  &__score-square {
+    display: var(--score-square-display);
+    width: 12px;
+    height: 12px;
+    background-color: currentColor;
+  }
+
+  &__score-pawn {
+    display: var(--score-pawn-display);
+    width: 16px;
+    height: 20px;
+    background-color: currentColor;
+    @include mx.mask-image('../../assets/result/winner-pawn.png');
+  }
+
+  &__score-name {
+    display: var(--score-name-display);
   }
 
   &__confetti {

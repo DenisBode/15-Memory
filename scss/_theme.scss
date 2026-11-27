@@ -75,6 +75,9 @@ $themes: (
     'icon-box-bg': transparent,
     'icon-box-padding': 0,
     'icon-box-shadow': none,
+    'score-square-display': inline-block,
+    'score-pawn-display': none,
+    'score-name-display': inline,
   ),
   'gaming': (
     'font-theme': ('Orbitron', sans-serif),
@@ -149,6 +152,9 @@ $themes: (
     'icon-box-bg': transparent,
     'icon-box-padding': 0,
     'icon-box-shadow': none,
+    'score-square-display': none,
+    'score-pawn-display': inline-block,
+    'score-name-display': none,
   ),
   'da-projects': (
     'font-theme': ('Figtree', sans-serif),
@@ -224,6 +230,9 @@ $themes: (
     'icon-box-bg': transparent,
     'icon-box-padding': 0,
     'icon-box-shadow': none,
+    'score-square-display': none,
+    'score-pawn-display': inline-block,
+    'score-name-display': none,
   ),
   'foods': (
     'font-theme': ('Delius Unicase', cursive),
@@ -299,6 +308,9 @@ $themes: (
     'icon-box-bg': #f4e4d4,
     'icon-box-padding': 24px 32px,
     'icon-box-shadow': 0 4px 4px rgba(#000, 0.15),
+    'score-square-display': none,
+    'score-pawn-display': inline-block,
+    'score-name-display': none,
   ),
 );
 
