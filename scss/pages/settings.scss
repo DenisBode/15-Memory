@@ -10,6 +10,26 @@
   padding-top: clamp(32px, 11.4vh, 117px);
   padding-inline: clamp(24px, 11.7vw, 168px);
 
+  &__back {
+    @include mx.text-style(v.$font-headline, 20px, 700);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin-bottom: 24px;
+    text-decoration: none;
+    transition: transform v.$transition;
+
+    &:hover {
+      transform: translateX(-4px);
+    }
+  }
+
+  &__back-arrow {
+    color: v.$secondary-yellow;
+    font-size: 28px;
+  }
+
   &__title {
     @include mx.text-style(v.$font-headline, clamp(36px, 5vw, 54px), 700);
     position: relative;

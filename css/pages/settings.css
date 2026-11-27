@@ -17,6 +17,27 @@
   padding-top: clamp(32px, 11.4vh, 117px);
   padding-inline: clamp(24px, 11.7vw, 168px);
 }
+.settings__back {
+  font-family: "Red Rose", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #303131;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-bottom: 24px;
+  text-decoration: none;
+  transition: transform 100ms ease-out;
+}
+.settings__back:hover {
+  transform: translateX(-4px);
+}
+.settings__back-arrow {
+  color: #f0ea6e;
+  font-size: 28px;
+}
 .settings__title {
   font-family: "Red Rose", sans-serif;
   font-size: clamp(36px, 5vw, 54px);
