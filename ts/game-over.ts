@@ -72,12 +72,12 @@ export function showGameOver(scores: Record<Player, number>): void {
   setText('result-score-1', String(scores[1]));
   setText('result-score-2', String(scores[2]));
   setVisible('result', true);
-  setTimeout(() => showWinner(scores), WINNER_DELAY_MS);
+  setTimeout((): void => showWinner(scores), WINNER_DELAY_MS);
 }
 
 /**
  * Connects the new game button of the result screen.
  */
 export function setupGameOver(): void {
-  document.getElementById('result-restart')?.addEventListener('click', () => window.location.reload());
+  document.getElementById('result-restart')?.addEventListener('click', (): void => window.location.reload());
 }

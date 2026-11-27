@@ -1,8 +1,7 @@
 import type { GameSettings, PlayerColor } from './types.js';
 import { getPreviewImagePath } from './cards.js';
+import { saveSettings } from './storage.js';
 
-/** localStorage key of the saved settings. */
-const STORAGE_KEY = 'memorySettings';
 /** Page opened when the game starts. */
 const GAME_PAGE = 'game.html';
 /** Names of the radio groups shown in the settings bar. */
@@ -20,14 +19,6 @@ function collectSettings(form: HTMLFormElement): GameSettings {
     player: String(data.get('player')) as PlayerColor,
     board: Number(data.get('board')),
   };
-}
-
-/**
- * Saves the settings in localStorage for the game page.
- * @param settings - Chosen settings.
- */
-function saveSettings(settings: GameSettings): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
 }
 
 /**
@@ -73,7 +64,7 @@ function fixSummaryWidth(form: HTMLFormElement, name: string): void {
   const labels = form.querySelectorAll(`input[name="${name}"] ~ .radio-btn__label`);
   if (!element) return;
   let maxWidth = 0;
-  labels.forEach((label) => {
+  labels.forEach((label: Element): void => {
     element.textContent = label.textContent;
     maxWidth = Math.max(maxWidth, element.offsetWidth);
   });
@@ -86,27 +77,27 @@ function fixSummaryWidth(form: HTMLFormElement, name: string): void {
  */
 async function fixSummaryWidths(form: HTMLFormElement): Promise<void> {
   await document.fonts.ready;
-  SUMMARY_GROUPS.forEach((name) => fixSummaryWidth(form, name));
+  SUMMARY_GROUPS.forEach((name: string): void => fixSummaryWidth(form, name));
   renderSummary(form);
 }
 
 /** Settings form of the page. */
-const form = document.getElementById('settings-form') as HTMLFormElement;
+const FORM = document.getElementById('settings-form') as HTMLFormElement;
 
 /**
  * Updates preview and settings bar after a change in the form.
  */
 function updateSettingsView(): void {
-  renderPreview(collectSettings(form));
-  renderSummary(form);
+  renderPreview(collectSettings(FORM));
+  renderSummary(FORM);
 }
 
-form.addEventListener('change', updateSettingsView);
-form.addEventListener('submit', (event: Event) => {
+FORM.addEventListener('change', updateSettingsView);
+FORM.addEventListener('submit', (event: Event): void => {
   event.preventDefault();
-  saveSettings(collectSettings(form));
+  saveSettings(collectSettings(FORM));
   window.location.href = GAME_PAGE;
 });
 
 updateSettingsView();
-fixSummaryWidths(form);
+fixSummaryWidths(FORM);

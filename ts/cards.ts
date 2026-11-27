@@ -25,6 +25,9 @@ export function getPreviewImagePath(theme: string): string {
   return `assets/previews/${theme}.png`;
 }
 
+/** Digits of the pair number in face image names, e.g. '01'. */
+const FACE_NUMBER_DIGITS = 2;
+
 /**
  * Builds the path to the front image of a card pair.
  * @param theme - Theme name, e.g. 'code-vibes'.
@@ -32,6 +35,6 @@ export function getPreviewImagePath(theme: string): string {
  * @returns Relative image path, e.g. 'assets/cards/faces/code-vibes-01.png'.
  */
 export function getFaceImagePath(theme: string, pairId: number): string {
-  const number = String(pairId).padStart(2, '0');
+  const number = String(pairId).padStart(FACE_NUMBER_DIGITS, '0');
   return `assets/cards/faces/${theme}-${number}.png`;
 }

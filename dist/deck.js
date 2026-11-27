@@ -1,10 +1,12 @@
+/** Number of cards that belong to one pair. */
+export const CARDS_PER_PAIR = 2;
 /**
  * Creates two entries for every pair, e.g. [1, 1, 2, 2] for 4 cards.
  * @param cardCount - Number of cards on the board.
  * @returns Unshuffled list of pair numbers.
  */
 export function createPairIds(cardCount) {
-    const pairCount = cardCount / 2;
+    const pairCount = cardCount / CARDS_PER_PAIR;
     const ids = [];
     for (let pair = 1; pair <= pairCount; pair++) {
         ids.push(pair, pair);

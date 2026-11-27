@@ -61,7 +61,7 @@ function createCard(theme: string, pairId: number, onClick: (card: HTMLElement) 
     createFace('card__face--front', getFaceImagePath(theme, pairId)),
   );
   card.appendChild(inner);
-  card.addEventListener('click', () => onClick(card));
+  card.addEventListener('click', (): void => onClick(card));
   return card;
 }
 

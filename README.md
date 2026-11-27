@@ -56,7 +56,8 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So l�
 ├── index.html, settings.html, game.html
 ├── ts/                   TypeScript-Quellcode
 │   ├── types.ts          Gemeinsame Typen (GameSettings, Player, PlayerColor)
-│   ├── settings.ts       Einstellungen lesen, Vorschau, Speichern
+│   ├── settings.ts       Einstellungen-Seite: Auswahl, Vorschau, Zusammenfassung
+│   ├── storage.ts        Einstellungen im localStorage speichern und lesen
 │   ├── game.ts           Spielablauf: verbindet die Module
 │   ├── game-state.ts     Spielzustand ohne DOM: Spieler, Punkte, Spielende, Gewinner
 │   ├── board.ts          Spielfeld: Karten erzeugen, umdrehen, Rahmen

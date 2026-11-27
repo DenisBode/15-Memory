@@ -1,6 +1,5 @@
 import { getPreviewImagePath } from './cards.js';
-/** localStorage key of the saved settings. */
-const STORAGE_KEY = 'memorySettings';
+import { saveSettings } from './storage.js';
 /** Page opened when the game starts. */
 const GAME_PAGE = 'game.html';
 /** Names of the radio groups shown in the settings bar. */
@@ -17,13 +16,6 @@ function collectSettings(form) {
         player: String(data.get('player')),
         board: Number(data.get('board')),
     };
-}
-/**
- * Saves the settings in localStorage for the game page.
- * @param settings - Chosen settings.
- */
-function saveSettings(settings) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
 }
 /**
  * Shows the preview image of the selected theme on its theme background.
@@ -84,19 +76,19 @@ async function fixSummaryWidths(form) {
     renderSummary(form);
 }
 /** Settings form of the page. */
-const form = document.getElementById('settings-form');
+const FORM = document.getElementById('settings-form');
 /**
  * Updates preview and settings bar after a change in the form.
  */
 function updateSettingsView() {
-    renderPreview(collectSettings(form));
-    renderSummary(form);
+    renderPreview(collectSettings(FORM));
+    renderSummary(FORM);
 }
-form.addEventListener('change', updateSettingsView);
-form.addEventListener('submit', (event) => {
+FORM.addEventListener('change', updateSettingsView);
+FORM.addEventListener('submit', (event) => {
     event.preventDefault();
-    saveSettings(collectSettings(form));
+    saveSettings(collectSettings(FORM));
     window.location.href = GAME_PAGE;
 });
 updateSettingsView();
-fixSummaryWidths(form);
+fixSummaryWidths(FORM);

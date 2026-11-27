@@ -1,19 +1,20 @@
-import type { GameSettings } from './types.js';
 import { createGameState, switchPlayer, addPoint, isGameOver, type GameState } from './game-state.js';
 import { pickStartPlayer, getOwnPlayer } from './players.js';
+import { CARDS_PER_PAIR } from './deck.js';
+import { readSettings } from './storage.js';
 import { renderBoard, isFlipped, setCardFlipped, hideCards, isSamePair, setFrame } from './board.js';
 import { renderScores, setCurrentPlayer, markOwnPlayer } from './header.js';
 import { setupExitDialog } from './dialog.js';
 import { showGameOver, setupGameOver } from './game-over.js';
 
-/** localStorage key of the saved settings. */
-const STORAGE_KEY = 'memorySettings';
 /** Page opened when the player leaves the game. */
 const SETTINGS_PAGE = 'settings.html';
 /** Time in ms before two different cards are turned back. */
 const HIDE_DELAY_MS = 1200;
 /** Time in ms between the last pair and the game over screen. */
 const FINISH_DELAY_MS = 1200;
+/** Number of cards that can be turned up at the same time. */
+const MAX_OPEN_CARDS = 2;
 
 /** Current player and scores. */
 let state: GameState = createGameState(pickStartPlayer());
@@ -21,16 +22,6 @@ let state: GameState = createGameState(pickStartPlayer());
 let openCards: HTMLElement[] = [];
 /** Number of pairs on the board. */
 let totalPairs = 0;
-
-/**
- * Reads the settings saved by the settings page.
- * @returns The settings, or null if none are saved.
- */
-function readSettings(): GameSettings | null {
-  const raw = localStorage.getItem(STORAGE_KEY);
-  if (raw === null) return null;
-  return JSON.parse(raw) as GameSettings;
-}
 
 /**
  * Activates the theme colors on the page.
@@ -52,7 +43,7 @@ function exitGame(): void {
  */
 function checkGameOver(): void {
   if (!isGameOver(state, totalPairs)) return;
-  setTimeout(() => showGameOver(state.scores), FINISH_DELAY_MS);
+  setTimeout((): void => showGameOver(state.scores), FINISH_DELAY_MS);
 }
 
 /**
@@ -72,7 +63,7 @@ function handleMatch(): void {
  * @param second - Second open card.
  */
 function handleMismatch(first: HTMLElement, second: HTMLElement): void {
-  setTimeout(() => {
+  setTimeout((): void => {
     hideCards(first, second);
     openCards = [];
     state = switchPlayer(state);
@@ -97,18 +88,19 @@ function checkOpenCards(): void {
  * @param card - Clicked card.
  */
 function flipCard(card: HTMLElement): void {
-  if (isFlipped(card) || openCards.length === 2) return;
+  if (isFlipped(card) || openCards.length === MAX_OPEN_CARDS) return;
   setCardFlipped(card, true);
   openCards.push(card);
-  if (openCards.length === 2) checkOpenCards();
+  if (openCards.length === MAX_OPEN_CARDS) checkOpenCards();
 }
 
-const settings = readSettings();
-if (settings) {
-  totalPairs = settings.board / 2;
-  applyTheme(settings.theme);
-  markOwnPlayer(getOwnPlayer(settings.player));
-  renderBoard(settings, flipCard);
+/** Settings chosen on the settings page. */
+const SETTINGS = readSettings();
+if (SETTINGS) {
+  totalPairs = SETTINGS.board / CARDS_PER_PAIR;
+  applyTheme(SETTINGS.theme);
+  markOwnPlayer(getOwnPlayer(SETTINGS.player));
+  renderBoard(SETTINGS, flipCard);
 }
 setupExitDialog(exitGame);
 setupGameOver();
