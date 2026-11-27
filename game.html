@@ -7,45 +7,45 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/pages/game.css" />
   </head>
-  <body>
+  <body class="game-page">
     <main class="game-container">
       <section class="game-panel">
         <header class="game-header">
-          <div class="game-header__players">
-            <div class="game-header__player_one">Player 1 <span id="score">10</span></div>
-            <div class="game-header__player_two">Player 2 <span id="score2">0</span></div>
+          <div class="game-header__scores">
+            <span class="game-header__score game-header__score--blue">Blue <span id="score">0</span></span>
+            <span class="game-header__score game-header__score--orange">Orange <span id="score2">0</span></span>
           </div>
 
           <div class="game-header__current">
-            Current Player
+            Current player:
             <div class="game-header__player-icon" id="current-player-icon" aria-hidden="true"></div>
           </div>
 
-          <button class="btn btn--exit game-header__exit" type="button">EXIT</button>
+          <button class="btn btn--exit game-header__exit" type="button">Exit game</button>
         </header>
 
         <div id="game-board"></div>
       </section>
     </main>
 
-    <dialog id="exit-dialog" class="exit-dialog">
-      <p>Are you sure you want to quit the game?</p>
-      <div class="exit-dialog__actions">
-        <button class="btn" type="button" id="exit-dialog-back">Back to Game</button>
-        <button class="btn btn--exit" type="button" id="exit-dialog-exit">Exit game</button>
+    <dialog id="exit-dialog" class="popup exit-dialog">
+      <p class="popup__title">Are you sure you want to quit the game?</p>
+      <div class="popup__buttons">
+        <button class="popup-btn popup-btn--primary" type="button" id="exit-dialog-back">Back to game</button>
+        <button class="popup-btn popup-btn--secondary" type="button" id="exit-dialog-exit">Exit game</button>
       </div>
     </dialog>
 
-    <dialog id="game-over" class="game-over">
+    <dialog id="game-over" class="popup game-over">
       <p class="game-over__subtitle" id="game-over-subtitle"></p>
-      <h2 class="game-over__title" id="game-over-title"></h2>
+      <h2 class="popup__title" id="game-over-title"></h2>
       <div class="game-over__scores">
-        <span class="game-over__score game-over__score--one">Player 1: <span id="game-over-score-1">0</span></span>
-        <span class="game-over__score game-over__score--two">Player 2: <span id="game-over-score-2">0</span></span>
+        <span class="game-over__score game-over__score--blue">Blue <span id="game-over-score-1">0</span></span>
+        <span class="game-over__score game-over__score--orange">Orange <span id="game-over-score-2">0</span></span>
       </div>
-      <div class="game-over__actions">
-        <button class="btn" type="button" id="game-over-restart">New game</button>
-        <a class="btn btn--exit" href="index.html">Back to start</a>
+      <div class="popup__buttons">
+        <button class="popup-btn popup-btn--primary" type="button" id="game-over-restart">New game</button>
+        <a class="popup-btn popup-btn--secondary" href="index.html">Back to start</a>
       </div>
     </dialog>
 
