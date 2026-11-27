@@ -1,11 +1,42 @@
 @use '../abstract/variables' as v;
 @use '../abstract/mixin' as mx;
 
+@mixin selection-arrow {
+  .radio-btn__icon {
+    box-shadow: inset 0 0 0 3px v.$white;
+    background-color: v.$primary-dark;
+  }
+
+  .radio-btn__label::after {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 3px;
+    margin-left: 16px;
+    vertical-align: middle;
+    background-color: v.$secondary-yellow;
+  }
+
+  &::after {
+    @include mx.diamond(10px);
+    margin-left: -12px;
+  }
+}
+
 .radio-btn {
   @include mx.flex-center(row, 10px);
   @include mx.text-style(v.$font-body, 20px);
   justify-content: flex-start;
+  padding-block: 6px;
   cursor: pointer;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 
   input {
     position: absolute;
@@ -22,28 +53,12 @@
     transition: all v.$transition;
   }
 
-  input:checked ~ &__icon {
-    box-shadow: inset 0 0 0 3px v.$white;
-    background-color: v.$primary-dark;
-  }
-
   input:checked ~ &__label {
     font-weight: 700;
-
-    &::after {
-      content: '';
-      display: inline-block;
-      width: 40px;
-      height: 3px;
-      margin-left: 16px;
-      vertical-align: middle;
-      background-color: v.$secondary-yellow;
-    }
   }
 
-  &:has(input:checked)::after {
-    @include mx.diamond(10px);
-    margin-left: -12px;
+  &--active {
+    @include selection-arrow;
   }
 
   input:focus-visible ~ &__icon {

@@ -6,6 +6,10 @@ import { saveSettings } from './storage.js';
 const GAME_PAGE = 'game.html';
 /** Names of the radio groups shown in the settings bar. */
 const SUMMARY_GROUPS: string[] = ['theme', 'player', 'board'];
+/** Name of the radio group whose options change the preview. */
+const THEME_GROUP = 'theme';
+/** Class of the option that shows the dot and the yellow arrow. */
+const ACTIVE_CLASS = 'radio-btn--active';
 
 /**
  * Reads the selected options from the settings form.
@@ -22,35 +26,35 @@ function collectSettings(form: HTMLFormElement): GameSettings {
 }
 
 /**
- * Shows the preview image of the selected theme on its theme background.
- * @param settings - Chosen settings.
+ * Shows the preview image of a theme on its theme background.
+ * @param theme - Theme name, e.g. 'code-vibes'.
  */
-function renderPreview(settings: GameSettings): void {
+function renderPreview(theme: string): void {
   const image = document.querySelector<HTMLImageElement>('.settings__preview-image');
-  document.documentElement.dataset.theme = settings.theme;
-  if (image) image.src = getPreviewImagePath(settings.theme);
+  document.documentElement.dataset.theme = theme;
+  if (image) image.src = getPreviewImagePath(theme);
 }
 
 /**
- * Reads the visible label of the checked option in a radio group.
+ * Reads the visible label of the active option in a radio group, i.e. the hovered or else the checked one.
  * @param form - Settings form.
  * @param name - Name of the radio group.
- * @returns Label text, or an empty string if nothing is checked.
+ * @returns Label text, or an empty string if no option is active.
  */
-function getSelectedLabel(form: HTMLFormElement, name: string): string {
-  const input = form.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`);
+function getActiveLabel(form: HTMLFormElement, name: string): string {
+  const input = form.querySelector<HTMLInputElement>(`.${ACTIVE_CLASS} input[name="${name}"]`);
   const label = input?.closest('.radio-btn')?.querySelector('.radio-btn__label');
   return label?.textContent ?? '';
 }
 
 /**
- * Shows the chosen options in the settings bar.
+ * Shows the active options in the settings bar.
  * @param form - Settings form.
  */
 function renderSummary(form: HTMLFormElement): void {
   for (const name of SUMMARY_GROUPS) {
     const element = document.getElementById(`summary-${name}`);
-    if (element) element.textContent = getSelectedLabel(form, name);
+    if (element) element.textContent = getActiveLabel(form, name);
   }
 }
 
@@ -85,19 +89,64 @@ async function fixSummaryWidths(form: HTMLFormElement): Promise<void> {
 const FORM = document.getElementById('settings-form') as HTMLFormElement;
 
 /**
- * Updates preview and settings bar after a change in the form.
+ * Marks one option as active, so it shows the dot and the yellow arrow, and removes the mark from the rest of its group.
+ * @param option - Option to mark.
  */
-function updateSettingsView(): void {
-  renderPreview(collectSettings(FORM));
+function setActiveOption(option: Element): void {
+  const group = option.parentElement?.querySelectorAll('.radio-btn') ?? [];
+  group.forEach((other: Element): void => other.classList.remove(ACTIVE_CLASS));
+  option.classList.add(ACTIVE_CLASS);
+}
+
+/**
+ * Marks the checked option of every radio group as active.
+ */
+function markCheckedOptions(): void {
+  FORM.querySelectorAll('input:checked').forEach((input: Element): void => {
+    const option = input.closest('.radio-btn');
+    if (option) setActiveOption(option);
+  });
+}
+
+/**
+ * Moves dot and arrow to an option, shows it in the settings bar and shows its preview if it is a theme.
+ * @param input - Radio input of the option.
+ */
+function highlightOption(input: HTMLInputElement): void {
+  const option = input.closest('.radio-btn');
+  if (option) setActiveOption(option);
+  if (input.name === THEME_GROUP) renderPreview(input.value);
   renderSummary(FORM);
 }
 
-FORM.addEventListener('change', updateSettingsView);
+/**
+ * Shows the checked options, their preview and the settings bar.
+ */
+function renderSettingsView(): void {
+  markCheckedOptions();
+  renderPreview(collectSettings(FORM).theme);
+  renderSummary(FORM);
+}
+
+/**
+ * Lets dot, arrow and theme preview follow the pointer and returns them to the checked options once the pointer leaves a group.
+ */
+function setupOptionHover(): void {
+  FORM.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((input: HTMLInputElement): void => {
+    input.closest('.radio-btn')?.addEventListener('mouseenter', (): void => highlightOption(input));
+  });
+  FORM.querySelectorAll('fieldset').forEach((group: Element): void => {
+    group.addEventListener('mouseleave', renderSettingsView);
+  });
+}
+
+FORM.addEventListener('change', (event: Event): void => highlightOption(event.target as HTMLInputElement));
 FORM.addEventListener('submit', (event: Event): void => {
   event.preventDefault();
   saveSettings(collectSettings(FORM));
   window.location.href = GAME_PAGE;
 });
 
-updateSettingsView();
+renderSettingsView();
+setupOptionHover();
 fixSummaryWidths(FORM);

@@ -75,7 +75,7 @@
   }
 
   &__group {
-    @include mx.flex-center(column, 12px);
+    @include mx.flex-center(column);
     align-items: flex-start;
     border: none;
   }
