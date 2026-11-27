@@ -1,12 +1,7 @@
 /**
- * Preview image file name per theme, as stored in assets/previews.
+ * Themes that have a preview image in assets/previews.
  */
-const PREVIEW_FILES: Record<string, string> = {
-  'code-vibes': 'code_vibes_preview.png',
-  gaming: 'gaming_preview.png',
-  'da-projects': 'DA_projects_preview.png',
-  foods: 'food_preview.png',
-};
+const PREVIEW_THEMES: string[] = ['code-vibes', 'gaming', 'da-projects', 'foods'];
 
 /**
  * Builds the path to the card back image of a theme.
@@ -24,11 +19,10 @@ export function getBackImagePath(theme: string): string {
  * @throws Error if the theme has no preview image.
  */
 export function getPreviewImagePath(theme: string): string {
-  const file = PREVIEW_FILES[theme];
-  if (file === undefined) {
+  if (!PREVIEW_THEMES.includes(theme)) {
     throw new Error(`Kein Vorschau-Bild für Theme: ${theme}`);
   }
-  return `assets/previews/${file}`;
+  return `assets/previews/${theme}.png`;
 }
 
 /**

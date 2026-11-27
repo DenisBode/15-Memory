@@ -11,15 +11,15 @@ test('Rückseite für da-projects liegt unter assets/cards/back', () => {
 });
 
 test('Vorschau für code-vibes', () => {
-  assert.equal(getPreviewImagePath('code-vibes'), 'assets/previews/code_vibes_preview.png');
+  assert.equal(getPreviewImagePath('code-vibes'), 'assets/previews/code-vibes.png');
 });
 
 test('Vorschau für da-projects', () => {
-  assert.equal(getPreviewImagePath('da-projects'), 'assets/previews/DA_projects_preview.png');
+  assert.equal(getPreviewImagePath('da-projects'), 'assets/previews/da-projects.png');
 });
 
 test('Vorschau für foods', () => {
-  assert.equal(getPreviewImagePath('foods'), 'assets/previews/food_preview.png');
+  assert.equal(getPreviewImagePath('foods'), 'assets/previews/foods.png');
 });
 
 test('unbekanntes Theme wirft einen Fehler', () => {
