@@ -533,6 +533,9 @@
   padding: 14px 20px;
   background-color: #f0ea6e;
 }
+.btn-small__icon {
+  width: 20px;
+}
 .btn-small:hover {
   font-size: 22px;
 }
@@ -568,6 +571,13 @@
   letter-spacing: var(--exit-spacing);
   color: var(--exit-color);
   transition: all 100ms ease-out;
+}
+.btn--exit .btn__exit-icon {
+  width: 24px;
+  height: 21px;
+  background-color: currentColor;
+  -webkit-mask: url("../assets/icons/exit.png") center/contain no-repeat;
+  mask: url("../assets/icons/exit.png") center/contain no-repeat;
 }
 .btn--exit:hover {
   background-color: var(--exit-hover-bg);

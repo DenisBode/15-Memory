@@ -93,4 +93,4 @@ Die übersetzten Ordner `css/` und `dist/` sind bewusst mit im Repository. So l�
 
 ## Stand
 
-Alle Punkte der Checkliste sind umgesetzt. Noch offen sind nur Icons aus Figma (Überschriften der Einstellungen, Exit-Button).
+Alle Punkte der Checkliste sind umgesetzt. Noch offen sind nur die Icons der Überschriften in den Einstellungen aus Figma.

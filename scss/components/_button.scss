@@ -32,6 +32,10 @@
   padding: 14px 20px;
   background-color: v.$secondary-yellow;
 
+  &__icon {
+    width: 20px;
+  }
+
   &:hover {
     font-size: 22px;
   }
@@ -65,6 +69,13 @@
     letter-spacing: var(--exit-spacing);
     color: var(--exit-color);
     transition: all v.$transition;
+
+    .btn__exit-icon {
+      width: 24px;
+      height: 21px;
+      background-color: currentColor;
+      @include mx.mask-image('../assets/icons/exit.png');
+    }
 
     &:hover {
       background-color: var(--exit-hover-bg);
