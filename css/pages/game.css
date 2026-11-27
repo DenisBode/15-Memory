@@ -1,3 +1,13 @@
+@keyframes popup-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .game-container {
   min-height: 100vh;
   display: flex;
@@ -69,16 +79,6 @@
   color: #f58e39;
 }
 
-@keyframes exit-dialog-drop {
-  from {
-    opacity: 0;
-    transform: translateY(-100vh);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .exit-dialog {
   position: fixed;
   inset: 0;
@@ -96,7 +96,7 @@
   background-color: var(--dialog-backdrop);
 }
 .exit-dialog[open] {
-  animation: exit-dialog-drop 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+  animation: popup-drop 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) both;
 }
 .exit-dialog p {
   margin-bottom: 24px;
@@ -107,11 +107,59 @@
 .exit-dialog__actions {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 12px;
 }
 .exit-dialog__actions .btn {
   padding: 6px 16px;
   font-size: 0.8rem;
+}
+
+.game-over {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 360px;
+  height: fit-content;
+  padding: 28px 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--dialog-bg);
+  color: var(--dialog-text);
+  text-align: center;
+}
+.game-over::backdrop {
+  background-color: var(--dialog-backdrop);
+}
+.game-over[open] {
+  animation: popup-drop 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+}
+.game-over__subtitle {
+  font-size: 1.1rem;
+}
+.game-over__title {
+  margin: 4px 0 16px;
+  font-size: 2rem;
+}
+.game-over__scores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+.game-over__score--one {
+  color: var(--player-1-color);
+}
+.game-over__score--two {
+  color: var(--player-2-color);
+}
+.game-over__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }
 
 #game-board {
