@@ -102,6 +102,16 @@
   justify-self: end;
 }
 
+@keyframes confetti-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .result {
   position: fixed;
   inset: 0;
@@ -119,12 +129,16 @@
 .result[hidden] {
   display: none;
 }
+.result--winner {
+  background-color: var(--winner-bg);
+  color: var(--winner-text);
+}
 .result__view {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 24px;
 }
 .result__view[hidden] {
   display: none;
@@ -137,15 +151,18 @@
   text-shadow: var(--game-over-shadow);
 }
 .result__final {
-  font-size: 26px;
+  font-size: 20px;
 }
 .result__scores {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  font-size: 32px;
+  gap: 20px;
+  padding: 8px 16px;
+  border-radius: var(--score-radius);
+  background-color: var(--score-bg);
+  font-size: 24px;
   font-weight: 700;
 }
 .result__score--blue {
@@ -154,45 +171,64 @@
 .result__score--orange {
   color: var(--orange-color);
 }
+.result__confetti {
+  display: var(--confetti-display);
+  width: min(100%, 900px);
+  animation: confetti-drop 800ms ease-out;
+}
 .result__label {
-  font-size: 40px;
+  font-size: 24px;
 }
 .result__winner {
   font-size: clamp(32px, 6vw, var(--winner-size));
   font-weight: 700;
   text-transform: var(--winner-transform);
-  color: var(--winner-color, var(--result-text));
+  color: var(--winner-name-color, var(--winner-color));
 }
-.result__player-icon {
-  position: relative;
-  display: inline-block;
+.result__icon-box {
+  padding: var(--icon-box-padding);
+  background-color: var(--icon-box-bg);
+  box-shadow: var(--icon-box-shadow);
+}
+.result__pawn {
+  display: var(--pawn-display);
   width: 200px;
   height: 250px;
-  background-color: var(--player-icon-bg);
+  background-color: var(--winner-color);
+  -webkit-mask: url("../../assets/result/winner-pawn.png") center/contain no-repeat;
+  mask: url("../../assets/result/winner-pawn.png") center/contain no-repeat;
 }
-.result__player-icon::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 60%;
-  height: 62.5%;
-  background-color: var(--player-icon-color, #ffffff);
-  -webkit-mask: url("../../assets/icons/chess-pawn.png") center/contain no-repeat;
-  mask: url("../../assets/icons/chess-pawn.png") center/contain no-repeat;
+.result__trophy {
+  display: var(--trophy-display);
+  width: 288px;
+  max-width: 100%;
 }
-.result__player-icon[hidden] {
+.result__scale {
+  display: none;
+  width: 339px;
+  max-width: 100%;
+  aspect-ratio: 706/565;
+  background-color: var(--draw-color);
+  -webkit-mask: url("../../assets/result/draw.png") center/contain no-repeat;
+  mask: url("../../assets/result/draw.png") center/contain no-repeat;
+}
+.result--draw .result__winner {
+  font-size: clamp(48px, 9vw, var(--game-over-size));
+  text-transform: uppercase;
+  color: var(--draw-color);
+}
+.result--draw .result__confetti, .result--draw .result__pawn, .result--draw .result__trophy {
   display: none;
 }
-.result__buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
+.result--draw .result__scale {
+  display: block;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .result__confetti {
+    animation: none;
+  }
+}
 #game-board {
   display: grid;
   gap: 16px;

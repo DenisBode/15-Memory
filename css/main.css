@@ -141,6 +141,15 @@
   --game-over-shadow: -7px 0 8px rgba(77, 213, 188, 0.5);
   --winner-size: 60px;
   --winner-transform: uppercase;
+  --winner-bg: #303131;
+  --winner-text: #ffffff;
+  --draw-color: #4dd5bc;
+  --confetti-display: block;
+  --pawn-display: block;
+  --trophy-display: none;
+  --icon-box-bg: transparent;
+  --icon-box-padding: 0;
+  --icon-box-shadow: none;
 }
 
 :root[data-theme=code-vibes] {
@@ -207,6 +216,15 @@
   --game-over-shadow: -7px 0 8px rgba(77, 213, 188, 0.5);
   --winner-size: 60px;
   --winner-transform: uppercase;
+  --winner-bg: #303131;
+  --winner-text: #ffffff;
+  --draw-color: #4dd5bc;
+  --confetti-display: block;
+  --pawn-display: block;
+  --trophy-display: none;
+  --icon-box-bg: transparent;
+  --icon-box-padding: 0;
+  --icon-box-shadow: none;
 }
 
 :root[data-theme=gaming] {
@@ -273,6 +291,15 @@
   --game-over-shadow: none;
   --winner-size: 60px;
   --winner-transform: none;
+  --winner-bg: #294f60;
+  --winner-text: #ffffff;
+  --draw-color: #ed1b76;
+  --confetti-display: none;
+  --pawn-display: none;
+  --trophy-display: block;
+  --icon-box-bg: transparent;
+  --icon-box-padding: 0;
+  --icon-box-shadow: none;
 }
 
 :root[data-theme=da-projects] {
@@ -339,6 +366,16 @@
   --game-over-shadow: none;
   --winner-size: 80px;
   --winner-transform: none;
+  --winner-bg: #1e7594;
+  --winner-text: #ffffff;
+  --winner-name-color: #ffffff;
+  --draw-color: #ed5b50;
+  --confetti-display: none;
+  --pawn-display: block;
+  --trophy-display: none;
+  --icon-box-bg: transparent;
+  --icon-box-padding: 0;
+  --icon-box-shadow: none;
 }
 
 :root[data-theme=foods] {
@@ -405,6 +442,16 @@
   --game-over-shadow: none;
   --winner-size: 80px;
   --winner-transform: none;
+  --winner-bg: #f6f6f6;
+  --winner-text: #f3832d;
+  --winner-name-color: #a45212;
+  --draw-color: #f3832d;
+  --confetti-display: none;
+  --pawn-display: block;
+  --trophy-display: none;
+  --icon-box-bg: #f4e4d4;
+  --icon-box-padding: 24px 32px;
+  --icon-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary {

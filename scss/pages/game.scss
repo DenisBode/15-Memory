@@ -77,6 +77,18 @@
   }
 }
 
+@keyframes confetti-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .result {
   position: fixed;
   inset: 0;
@@ -91,8 +103,13 @@
     display: none;
   }
 
+  &--winner {
+    background-color: var(--winner-bg);
+    color: var(--winner-text);
+  }
+
   &__view {
-    @include mx.flex-center(column, 40px);
+    @include mx.flex-center(column, 24px);
 
     &[hidden] {
       display: none;
@@ -108,12 +125,15 @@
   }
 
   &__final {
-    font-size: 26px;
+    font-size: 20px;
   }
 
   &__scores {
-    @include mx.flex-center(row, 24px);
-    font-size: 32px;
+    @include mx.flex-center(row, 20px);
+    padding: 8px 16px;
+    border-radius: var(--score-radius);
+    background-color: var(--score-bg);
+    font-size: 24px;
     font-weight: 700;
   }
 
@@ -127,28 +147,72 @@
     }
   }
 
+  &__confetti {
+    display: var(--confetti-display);
+    width: min(100%, 900px);
+    animation: confetti-drop 800ms ease-out;
+  }
+
   &__label {
-    font-size: 40px;
+    font-size: 24px;
   }
 
   &__winner {
     font-size: clamp(32px, 6vw, var(--winner-size));
     font-weight: 700;
     text-transform: var(--winner-transform);
-    color: var(--winner-color, var(--result-text));
+    color: var(--winner-name-color, var(--winner-color));
   }
 
-  &__player-icon {
-    @include mx.pawn-icon(200px, 250px);
-
-    &[hidden] {
-      display: none;
-    }
+  &__icon-box {
+    padding: var(--icon-box-padding);
+    background-color: var(--icon-box-bg);
+    box-shadow: var(--icon-box-shadow);
   }
 
-  &__buttons {
-    @include mx.flex-center(row, 24px);
-    flex-wrap: wrap;
+  &__pawn {
+    display: var(--pawn-display);
+    width: 200px;
+    height: 250px;
+    background-color: var(--winner-color);
+    @include mx.mask-image('../../assets/result/winner-pawn.png');
+  }
+
+  &__trophy {
+    display: var(--trophy-display);
+    width: 288px;
+    max-width: 100%;
+  }
+
+  &__scale {
+    display: none;
+    width: 339px;
+    max-width: 100%;
+    aspect-ratio: 706 / 565;
+    background-color: var(--draw-color);
+    @include mx.mask-image('../../assets/result/draw.png');
+  }
+
+  &--draw &__winner {
+    font-size: clamp(48px, 9vw, var(--game-over-size));
+    text-transform: uppercase;
+    color: var(--draw-color);
+  }
+
+  &--draw &__confetti,
+  &--draw &__pawn,
+  &--draw &__trophy {
+    display: none;
+  }
+
+  &--draw &__scale {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .result__confetti {
+    animation: none;
   }
 }
 

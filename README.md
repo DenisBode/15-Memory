@@ -7,7 +7,7 @@ Memory-Spiel für zwei Spieler, entwickelt im TypeScript-Modul der Developer Aka
 1. **Startseite:** „Ready to play?“ mit animiertem Controller-Icon. Der Play-Button führt zu den Einstellungen.
 2. **Einstellungen:** Auswahl von Theme, Spielerfarbe und Spielfeldgröße. Eine Vorschau zeigt das gewählte Theme, die Leiste unten fasst die Auswahl zusammen.
 3. **Spiel:** Zwei Spieler decken abwechselnd je zwei Karten auf.
-4. **Game Over:** Nach dem letzten Paar erscheint bildschirmfüllend „Game over“ mit dem Endstand. Kurz danach folgen der Gewinner mit Spielfigur in seiner Farbe oder ein Unentschieden. Von dort startet eine neue Runde oder es geht zurück zur Startseite.
+4. **Game Over:** Nach dem letzten Paar erscheint bildschirmfüllend „Game over“ mit dem Endstand. Kurz danach folgt der Gewinner je nach Theme mit Spielfigur in seiner Farbe, Pokal oder Konfetti. Bei Unentschieden erscheint „DRAW“ mit einer Waage. Von dort startet eine neue Runde oder es geht zurück zur Startseite.
 
 ## Funktionen
 
@@ -72,6 +72,7 @@ Danach `index.html` über einen lokalen Server öffnen, z. B. mit der VS-Code-Er
 │   ├── cards/faces/  Vorderseiten: <theme>-01.png bis <theme>-18.png
 │   ├── cards/back/   Rückseiten: <theme>.png
 │   ├── previews/     Vorschaubilder: <theme>.png
+│   ├── result/       Ergebnis: Spielfigur, Pokal, Waage, Konfetti
 │   └── icons/        Icons der Oberfläche
 ├── fonts/            Lokale Schriften
 ├── css/, dist/       Übersetzte Dateien (werden mit npm run build erzeugt)

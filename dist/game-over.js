@@ -23,16 +23,17 @@ function setVisible(id, visible) {
         element.hidden = !visible;
 }
 /**
- * Colors winner name and player icon in the winner's color, or hides the icon on a draw.
+ * Switches the result screen to the winner look and colors it in the winner's color.
  * @param winner - Winning player, or null on a draw.
  */
 function colorWinner(winner) {
     const result = document.getElementById('result');
-    setVisible('result-player-icon', winner !== null);
-    if (!result || winner === null)
+    if (!result)
         return;
-    result.style.setProperty('--winner-color', playerColor(winner));
-    result.style.setProperty('--player-icon-bg', playerColor(winner));
+    result.classList.add('result--winner');
+    result.classList.toggle('result--draw', winner === null);
+    if (winner !== null)
+        result.style.setProperty('--winner-color', playerColor(winner));
 }
 /**
  * Switches from the "Game over" view to the winner view.
