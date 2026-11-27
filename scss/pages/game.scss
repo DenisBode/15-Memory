@@ -110,7 +110,7 @@
   }
 
   &__view {
-    @include mx.flex-center(column, 24px);
+    @include mx.flex-center(column, 32px);
 
     &[hidden] {
       display: none;
@@ -170,8 +170,13 @@
   }
 
   &__confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     display: var(--confetti-display);
     width: min(90vw, 1300px);
+    margin-inline: auto;
     animation: confetti-drop 800ms ease-out;
 
     @include mx.widescreen {
@@ -190,6 +195,11 @@
     font-weight: 700;
     text-transform: var(--winner-transform);
     color: var(--winner-name-color, var(--winner-color));
+  }
+
+  &__media {
+    @include mx.flex-center;
+    height: 344px;
   }
 
   &__icon-box {

@@ -29,8 +29,9 @@
 }
 
 .home {
-  @include mx.flex-center(column, 40px);
+  @include mx.flex-center(column, 32px);
   align-items: flex-start;
+  width: fit-content;
 
   &__subtitle {
     @include mx.text-style(v.$font-body, 48px, 400, v.$white);
