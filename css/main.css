@@ -97,6 +97,7 @@
   --card-bleed-back: 0;
   --card-bleed-front: 0;
   --card-radius: 0;
+  --frame-radius: 0;
   --card-shadow: none;
   --card-front: #e8f3f0;
   --match-border: 5px #4dd5bc;
@@ -177,6 +178,7 @@
   --card-bleed-back: 0;
   --card-bleed-front: 0;
   --card-radius: 0;
+  --frame-radius: 0;
   --card-shadow: none;
   --card-front: #e8f3f0;
   --match-border: 5px #4dd5bc;
@@ -257,6 +259,7 @@
   --card-bleed-back: -6px -18px -18px -6px;
   --card-bleed-front: -6px -6px -18px -18px;
   --card-radius: 0;
+  --frame-radius: 8px;
   --card-shadow: none;
   --card-front: transparent;
   --match-border: 0 transparent;
@@ -337,6 +340,7 @@
   --card-bleed-back: 0;
   --card-bleed-front: 0;
   --card-radius: 13px;
+  --frame-radius: 13px;
   --card-shadow: none;
   --card-front: #eaf2f4;
   --match-border: 2px #1e7594;
@@ -418,6 +422,7 @@
   --card-bleed-back: 0;
   --card-bleed-front: 0;
   --card-radius: 0;
+  --frame-radius: 0;
   --card-shadow: none;
   --card-front: #f4ece4;
   --match-border: 4px #f3832d;
@@ -571,10 +576,19 @@
 }
 
 .card {
+  position: relative;
   width: var(--card-width);
   height: var(--card-height);
   perspective: 1000px;
   cursor: pointer;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 4px solid var(--card-frame, transparent);
+  border-radius: var(--frame-radius);
+  pointer-events: none;
 }
 .card__inner {
   position: relative;
@@ -590,10 +604,8 @@
   position: absolute;
   inset: var(--card-bleed-back);
   border-radius: var(--card-radius);
-  border: 4px solid var(--card-frame, transparent);
   box-shadow: var(--card-shadow);
   background-size: cover;
-  background-origin: border-box;
   background-position: center;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;

@@ -1,8 +1,18 @@
 .card {
+  position: relative;
   width: var(--card-width);
   height: var(--card-height);
   perspective: 1000px;
   cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 4px solid var(--card-frame, transparent);
+    border-radius: var(--frame-radius);
+    pointer-events: none;
+  }
 
   &__inner {
     position: relative;
@@ -20,10 +30,8 @@
     position: absolute;
     inset: var(--card-bleed-back);
     border-radius: var(--card-radius);
-    border: 4px solid var(--card-frame, transparent);
     box-shadow: var(--card-shadow);
     background-size: cover;
-    background-origin: border-box;
     background-position: center;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
