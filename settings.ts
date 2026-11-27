@@ -63,6 +63,33 @@ function renderSummary(form: HTMLFormElement): void {
   }
 }
 
+/**
+ * Gives a summary field the width of its longest option, so the bar does not jump on a change.
+ * @param form - Settings form.
+ * @param name - Name of the radio group.
+ */
+function fixSummaryWidth(form: HTMLFormElement, name: string): void {
+  const element = document.getElementById(`summary-${name}`);
+  const labels = form.querySelectorAll(`input[name="${name}"] ~ .radio-btn__label`);
+  if (!element) return;
+  let maxWidth = 0;
+  labels.forEach((label) => {
+    element.textContent = label.textContent;
+    maxWidth = Math.max(maxWidth, element.offsetWidth);
+  });
+  element.style.minWidth = `${maxWidth}px`;
+}
+
+/**
+ * Fixes the width of all summary fields once the fonts are loaded.
+ * @param form - Settings form.
+ */
+async function fixSummaryWidths(form: HTMLFormElement): Promise<void> {
+  await document.fonts.ready;
+  SUMMARY_GROUPS.forEach((name) => fixSummaryWidth(form, name));
+  renderSummary(form);
+}
+
 /** Settings form of the page. */
 const form = document.getElementById('settings-form') as HTMLFormElement;
 
@@ -82,3 +109,4 @@ form.addEventListener('submit', (event: Event) => {
 });
 
 updateSettingsView();
+fixSummaryWidths(form);

@@ -138,6 +138,9 @@
   font-family: "Almarai", sans-serif;
   font-size: 20px;
 }
+.settings-bar__value {
+  text-align: center;
+}
 .settings-bar__divider {
   width: 8px;
   height: 53px;

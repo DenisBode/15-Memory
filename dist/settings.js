@@ -57,6 +57,32 @@ function renderSummary(form) {
             element.textContent = getSelectedLabel(form, name);
     }
 }
+/**
+ * Gives a summary field the width of its longest option, so the bar does not jump on a change.
+ * @param form - Settings form.
+ * @param name - Name of the radio group.
+ */
+function fixSummaryWidth(form, name) {
+    const element = document.getElementById(`summary-${name}`);
+    const labels = form.querySelectorAll(`input[name="${name}"] ~ .radio-btn__label`);
+    if (!element)
+        return;
+    let maxWidth = 0;
+    labels.forEach((label) => {
+        element.textContent = label.textContent;
+        maxWidth = Math.max(maxWidth, element.offsetWidth);
+    });
+    element.style.minWidth = `${maxWidth}px`;
+}
+/**
+ * Fixes the width of all summary fields once the fonts are loaded.
+ * @param form - Settings form.
+ */
+async function fixSummaryWidths(form) {
+    await document.fonts.ready;
+    SUMMARY_GROUPS.forEach((name) => fixSummaryWidth(form, name));
+    renderSummary(form);
+}
 /** Settings form of the page. */
 const form = document.getElementById('settings-form');
 /**
@@ -73,3 +99,4 @@ form.addEventListener('submit', (event) => {
     window.location.href = GAME_PAGE;
 });
 updateSettingsView();
+fixSummaryWidths(form);

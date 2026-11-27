@@ -120,6 +120,10 @@
   font-family: v.$font-body;
   font-size: 20px;
 
+  &__value {
+    text-align: center;
+  }
+
   &__divider {
     width: 8px;
     height: 53px;
