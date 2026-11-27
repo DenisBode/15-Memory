@@ -715,6 +715,7 @@ input:focus-visible ~ .radio-btn__icon {
   width: 100%;
   max-width: 1440px;
   min-height: 100vh;
+  margin-inline: auto;
   padding: 41px 112px;
 }
 @media (max-width: 1024px) {

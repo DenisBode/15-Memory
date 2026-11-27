@@ -125,6 +125,7 @@
   font-family: var(--font-theme);
   color: var(--result-text);
   text-align: center;
+  overflow: hidden;
 }
 .result[hidden] {
   display: none;
@@ -197,8 +198,15 @@
 }
 .result__confetti {
   display: var(--confetti-display);
-  width: min(100%, 900px);
+  width: min(90vw, 1300px);
   animation: confetti-drop 800ms ease-out;
+}
+@media (min-width: 1440px) {
+  .result__confetti {
+    width: 100vw;
+    height: 344px;
+    object-fit: cover;
+  }
 }
 .result__label {
   font-size: 24px;

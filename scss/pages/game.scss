@@ -98,6 +98,7 @@
   font-family: var(--font-theme);
   color: var(--result-text);
   text-align: center;
+  overflow: hidden;
 
   &[hidden] {
     display: none;
@@ -170,8 +171,14 @@
 
   &__confetti {
     display: var(--confetti-display);
-    width: min(100%, 900px);
+    width: min(90vw, 1300px);
     animation: confetti-drop 800ms ease-out;
+
+    @include mx.widescreen {
+      width: 100vw;
+      height: 344px;
+      object-fit: cover;
+    }
   }
 
   &__label {

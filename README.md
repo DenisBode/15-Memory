@@ -25,6 +25,7 @@ Memory-Spiel für zwei Spieler, entwickelt im TypeScript-Modul der Developer Aka
 
 - Gefundene Paare bekommen einen Rahmen in der Farbe des Spielers, der sie gefunden hat.
 - Unit-Tests für die Spiellogik mit dem Testrunner von Node.
+- Widescreen ab 1440px: Die Content-Fläche bleibt so breit wie im Desktop-Layout und wird zentriert, der Hintergrund geht über die ganze Breite. Das Konfetti in der Gewinner-Ansicht läuft dann über die volle Bildschirmbreite.
 - Die Animation des Controller-Icons ist aus, wenn im Betriebssystem „Bewegung reduzieren“ aktiviert ist.
 
 ## Starten

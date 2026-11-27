@@ -5,6 +5,7 @@
   width: 100%;
   max-width: v.$max-content-width;
   min-height: 100vh;
+  margin-inline: auto;
   padding: 41px 112px;
 
   @include mx.mobile(1024px) {

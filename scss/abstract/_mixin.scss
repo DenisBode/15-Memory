@@ -36,6 +36,12 @@
   color: $color;
 }
 
+@mixin widescreen($min: v.$max-content-width) {
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
 @mixin mobile($max: 768px) {
   @media (max-width: $max) {
     @content;
