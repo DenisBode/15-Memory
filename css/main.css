@@ -532,12 +532,13 @@
   color: #303131;
   padding: 14px 20px;
   background-color: #f0ea6e;
+  transition: transform 100ms ease-out;
 }
 .btn-small__icon {
   width: 20px;
 }
 .btn-small:hover {
-  font-size: 22px;
+  transform: scale(1.1);
 }
 .btn-small:disabled {
   background-color: #dbdbd6;

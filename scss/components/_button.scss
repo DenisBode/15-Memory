@@ -31,13 +31,14 @@
   @include mx.text-style(v.$font-headline, 20px, 700);
   padding: 14px 20px;
   background-color: v.$secondary-yellow;
+  transition: transform v.$transition;
 
   &__icon {
     width: 20px;
   }
 
   &:hover {
-    font-size: 22px;
+    transform: scale(1.1);
   }
 
   &:disabled {
