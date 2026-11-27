@@ -51,7 +51,7 @@ test('bei Gleichstand gibt es keinen Gewinner', () => {
 });
 
 test('Ergebnistext nennt den Gewinner', () => {
-  assert.deepEqual(getResultText({ 1: 3, 2: 5 }), { subtitle: 'The winner is', title: 'Player 2' });
+  assert.deepEqual(getResultText({ 1: 3, 2: 5 }), { subtitle: 'The winner is', title: 'Orange Player' });
 });
 
 test('Ergebnistext bei Gleichstand', () => {

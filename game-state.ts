@@ -1,5 +1,8 @@
 import type { Player } from './types.js';
 
+/** Display names of the players on the result screen. */
+const PLAYER_NAMES: Record<Player, string> = { 1: 'Blue Player', 2: 'Orange Player' };
+
 /**
  * Current state of a running game.
  */
@@ -86,5 +89,5 @@ export function getWinner(scores: Record<Player, number>): Player | null {
 export function getResultText(scores: Record<Player, number>): ResultText {
   const winner = getWinner(scores);
   if (winner === null) return { subtitle: "It's a", title: 'Draw' };
-  return { subtitle: 'The winner is', title: `Player ${winner}` };
+  return { subtitle: 'The winner is', title: PLAYER_NAMES[winner] };
 }
