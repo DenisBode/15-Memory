@@ -58,9 +58,5 @@
     @media (prefers-reduced-motion: reduce) {
       animation: none;
     }
-
-    @include mx.widescreen {
-      left: calc((100% - #{v.$max-content-width}) / 2);
-    }
   }
 }

@@ -69,10 +69,5 @@
     animation: none;
   }
 }
-@media (min-width: 1440px) {
-  .home__decor {
-    left: calc((100% - 1440px) / 2);
-  }
-}
 
 /*# sourceMappingURL=home.css.map */
