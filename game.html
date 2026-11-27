@@ -11,6 +11,7 @@
   <body class="game-page">
     <main class="game-container">
       <section class="game-panel">
+        <!-- Header: scores, current player and exit button -->
         <header class="game-header">
           <h1 class="game-header__title">Memory Game</h1>
           <div class="game-header__scores">
@@ -29,10 +30,12 @@
           </button>
         </header>
 
+        <!-- Cards are created by board.ts -->
         <div id="game-board"></div>
       </section>
     </main>
 
+    <!-- Confirmation before leaving the game -->
     <dialog id="exit-dialog" class="popup exit-dialog">
       <p class="popup__title">Are you sure you want to quit the game?</p>
       <div class="popup__buttons">
@@ -41,7 +44,9 @@
       </div>
     </dialog>
 
+    <!-- Result screen, shown by game-over.ts after the last pair -->
     <section class="result" id="result" hidden>
+      <!-- Step 1: "Game over" with the final score -->
       <div class="result__view" id="result-game-over">
         <h2 class="result__gameover">Game over</h2>
         <p class="result__final">Final score</p>
@@ -61,6 +66,7 @@
         </div>
       </div>
 
+      <!-- Step 2: winner or draw; theme tokens decide which image is visible -->
       <div class="result__view" id="result-winner" hidden>
         <img class="result__confetti" src="assets/result/confetti.png" alt="" />
         <p class="result__label" id="result-label"></p>

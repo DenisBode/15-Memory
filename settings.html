@@ -13,6 +13,7 @@
       <h1 class="settings__title">Settings</h1>
 
       <form id="settings-form" class="settings__form">
+        <!-- Choices: theme, player color and board size -->
         <div class="settings__options">
           <fieldset class="settings__group">
             <legend class="settings__heading">
@@ -81,10 +82,12 @@
           </fieldset>
         </div>
 
+        <!-- Preview of the selected theme, image is set by settings.ts -->
         <div class="settings__preview">
           <img class="settings__preview-image" src="assets/previews/code-vibes.png" alt="Preview of the selected theme" />
         </div>
 
+        <!-- Summary of the current choice and start button, values are set by settings.ts -->
         <div class="settings-bar">
           <span class="settings-bar__value" id="summary-theme">Code vibes theme</span>
           <span class="settings-bar__divider" aria-hidden="true"></span>
